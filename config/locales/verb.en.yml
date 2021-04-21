@@ -1,0 +1,37 @@
+en:
+  verb:
+    agree: Agree
+    attach: Attach
+    check_all: Check All
+    close: Close
+    comment: Comment
+    create: Create
+    delete: Delete
+    edit: Edit
+    explore: Explore
+    follow: Follow
+    hide: Hide
+    more: More
+    mute: Mute
+    next: Next
+    post: Post
+    previous: Prev
+    regist: Add
+    revoke: Revoke
+    search: Search
+    send: Send
+    sign_in: Sign In
+    sign_out: Sign Out
+    skip: Skip
+    state_change: Change state
+    submit: Submit
+    track: Track
+    tweet: Tweet
+    uncheck_all: Uncheck All
+    unmute: Unmute
+    update: Update
+    upload: Upload
+    view: View
+    view_all: View All
+    view_more: View More
+    view_work_detail: View Work Detail

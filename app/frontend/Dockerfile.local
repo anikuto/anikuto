@@ -1,0 +1,19 @@
+FROM node:12.16.1-alpine
+
+LABEL maintainer="https://anikuto.com/@luna" \
+      description="A platform for all things anime."
+
+RUN apk update && \
+    apk add -t \
+        git
+
+ENV PATH=./node_modules/.bin/:$PATH \
+    NODE_ENV=development
+
+WORKDIR /anikuto/
+
+COPY package.json yarn.lock ./
+RUN yarn install && \
+    yarn cache clean
+
+EXPOSE 8080

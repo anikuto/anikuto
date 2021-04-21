@@ -1,0 +1,24 @@
+en:
+  email_notification_mailer:
+    _layout:
+      unsubscribe: "Unsubscribe"
+      unsubscribe_message: "You're receiving this email because you are a user of Anikuto."
+    favorite_works_added:
+      favorites_joins_work: "Your favorites which joins to this anime"
+      subject: "%{n} anime which relates to your favorites has been added on Anikuto!"
+      view_detail: "View Detail"
+    followed_user:
+      followed_you: "%{name} (@%{username}) followed you."
+      subject: "%{name} (@%{username}) is now following you on Anikuto!"
+      view_profile: "View Profile"
+    liked_episode_record:
+      liked_your_episode_records: "%{name} (@%{username}) liked your records."
+      subject: "%{name} (@%{username}) liked your record on %{title}!"
+      view_profile: "View Profile"
+      view_record: "View Record"
+    related_works_added:
+      related_works: Related Anime
+      subject: "%{n} anime which relates to your library has been added on Anikuto!"
+  mention_mailer:
+    notify:
+      subject: "%{name} (@%{username}) mentioned you on Anikuto!"

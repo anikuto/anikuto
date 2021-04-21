@@ -1,0 +1,8 @@
+「<%= link_to "#{@work.title}", work_url(@work, host: ENV.fetch("ANIKUTO_JP_URL")) %>」An error occurred while generating the episode.<br>
+<br>
+slot.id: <%= @slot.id %><br>
+Error message: <%= @error_message.inspect %><br>
+<br>
+<br>
+---<br>
+<%= ENV['ANIKUTO_JP_URL'] %>

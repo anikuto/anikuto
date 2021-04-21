@@ -1,0 +1,285 @@
+en:
+  messages:
+    _common:
+      are_you_sure: Are you sure?
+      connected: Connected
+      created: Created
+      deleted: Deleted
+      edit_on_anikuto_db: Edit on Anikuto DB
+      join_anikuto: Join Anikuto
+      post: Finished to post
+      published: Published
+      search_with_keywords: Search by anime title...
+      share_to_twitter: Share to Twitter
+      unpublished: Unpublished
+      updated: Updated
+      view_amazon_product: View Amazon
+      welcome_back: Welcome back!
+      welcome_to_anikuto: Welcome to Anikuto!
+      you_can_not_access_there: You can not access there.
+    _components:
+      activities:
+        episode_record:
+          created: "tracked"
+          more: "Show %{n} records"
+        status:
+          changed: "changed status"
+          more: "Show %{n} status changes"
+        work_record:
+          created: "tracked"
+          more: "Show %{n} records"
+      body:
+        view_full_text: View Full Text
+      favorite_button:
+        add_to_favorites: Add to Favorites
+        added_to_favorites: Added to Favorites
+        hint: If you add this %{resource_type} into your favorites, you'll get a notification when upcoming animes which is related to this %{resource_type} will be added to Anikuto.
+      sign_up_modal:
+        body: You can use this feature after sign up.
+    _empty:
+      no_activities: No Activities
+      no_characters: No Characters
+      no_episodes: No Episodes
+      no_followers: No Followers
+      no_following: No Following Users
+      no_organizations: No Organizations
+      no_people: No People
+      no_projects: No Projects
+      no_record_body_list: No Comments
+      no_records: No Records
+      no_resources: No Resources
+      no_series_works: No Series Works
+      no_series: No Series
+      no_staffs: No Staffs
+      no_works: No Works
+    _validators:
+      and_other_are_required: and %{column_name} are required
+      is_required_true_or_false: is required `true` or `false`
+      is_invalid: is invalid
+    accounts:
+      email_sent_for_confirmation: An email has been sent to confirm your email address.
+      saved: Account has been saved.
+      updated: Account has been updated.
+    callbacks:
+      sign_in_failed: Sign in failed.
+    channel_works:
+      no_works: No works
+    channels:
+      supported_vod: Video Service
+    character_fans:
+      no_users: No users
+    comments:
+      comment_form_placeholder: Click here to add a new comment
+      create: Create
+      deleted: Deleted
+      saved: Comment has been saved.
+      update: Update
+      updated: Updated
+    confirmations:
+      confirmed: Email address has been confirmed.
+      failure: Email address confirmation failed.
+    db:
+      comments:
+        created: Comment has been created.
+      episodes:
+        auto_generate_info_html: "Total episodes: %{manual_episodes_count}<br>Published episodes: %{episodes_count}<br>Auto generate episodes: %{max_generate_episodes_count}"
+      works:
+        no_episodes: No Episodes
+        no_image: No Image
+        no_release_season: No Season
+        no_slots: No Slots
+    episode_records:
+      created: Created
+      new:
+        write_your_comment: Write Your Comment! (optional)
+    episodes:
+      comments: Comments
+      comments_by_others: Comments by Others
+      no_comments: No Comments
+      watched_x_times: Watched %{records_count} times
+      your_records: Your Records
+    favorite_characters:
+      no_characters: No Characters
+    favorite_organizations:
+      no_organizations: No Organizations
+    favorite_people:
+      no_people: No Poeple
+    forum:
+      _common:
+        view_all_site_news: "View All"
+      comments:
+        created: Created
+        deleted: This comment has been deleted.
+        leave_a_comment: Leave a comment
+        updated: Updated
+      posts:
+        created: Created
+        no_comments: No comments
+        no_posts: No posts
+        updated: Updated
+    friends:
+      no_sns_friends: No SNS Friends
+      no_users: No users
+    home:
+      index:
+        there_are_no_activities: There are no activities
+      index_guest:
+        hero_description_html: Explore the anime database, track anime you are watching<br>and see what friends are watching.
+        hero_description_mobile_html: Track anime you are watching<br>and see what friends are watching.
+        hero_title: The platform for all thing anime.
+        hero_title_mobile_html: The platform for all things anime.
+        start_tracking: Start Tracking
+    ics:
+      you_can_see: You can see slots of works which you set "Watching", "Plan to Watch" when you add the following URL to Google Calendar.
+    components:
+      load_more_button:
+        more: View more
+      mute_user_button:
+        the_user_has_been_muted: The user has been muted.
+      slot_list:
+        tracked: Tracked.
+      status_selector:
+        select_status: Select Status
+    multiple_records:
+      create:
+        saved: Records have been saved.
+    mutes:
+      no_muted_users_found: No muted users found.
+    notifications:
+      no_notifications: No notifications
+    oauth:
+      applications:
+        authorize: Authorize
+        created: Created
+        new: New Application
+        please_input_uris_with_new_line: You can input URIs each lines.
+        read_only: Read Only
+        read_write: Read + Write
+        you_can_use_the_uri_for_local_application: You can use urn:ietf:wg:oauth:2.0:oob for local application.
+      authorizations:
+        authorize: Authorize
+        authorize_account_html: Authorize <b>%{client_name}</b> to use your account?
+        cancel: Cancel
+        this_application_will_be_able_to: "This application will be able to:"
+    oauth_users:
+      new:
+        sign_up_with_oauth: Sign Up with %{provider_name}
+    options:
+      hide_supporter_badge: Hide Anikuto Supporters badges
+      hide_supporter_badge_detail: Hide supporter badges on profiles page and so on.
+      prevent_spoiler_of_episode_you_have_not_watched: Prevent spoiler of episode which you have not watched
+      prevent_spoiler_of_episode_you_have_not_watched_detail: This option will hide comments on unwatched episodes when you've set status as "Watched", "Plan to Watch", or "On Hold".
+      share_status_to_twitter: Share changing statuses to Twitter
+      share_status_to_twitter_detail_html: If you change a status of a work, it'll be post to Twitter.
+    organization_fans:
+      no_users: No users
+    passwords:
+      new:
+        forgot_your_password: Forgot your password?
+    person_fans:
+      no_users: No users
+    profiles:
+      saved: Profile has been saved.
+    slots:
+      new_slots_csv_by_program: New slots by slot detail
+      no_slots: No slots
+      please_set_channels_html: Please set channels on %{channels_link} page.
+    providers:
+      removed: Removed.
+      you_can_not_disconnect: You can not disconnect.
+    recaptcha:
+      not_verified: reCAPTCHA verification failed. Please try again later.
+    records:
+      show:
+        record_by_name: "%{name}'s Record"
+      view_record_body: "View Comment"
+    registrations:
+      new:
+        expired_html: Your sign up link has expired.<br>Please reenter your email on the <a href="/sign_up">sign up page</a>.
+        password_hint: At least 8 characters.
+        sign_in_link_html: Already have an account? %{link}
+        start_with_facebook: Sign In with Facebook
+        start_with_twitter: Sign In with Twitter
+        username_hint: Only letters, numbers, and underscores.
+      create:
+        welcome: Your account has been created. Welcome to Anikuto!
+    reviews:
+      n_people_changed_status_to_wanna_watch: "%{count} people changed their status to 'Plan to Watch'."
+      view_review_with_words_count: View Review
+    sayonara:
+      are_you_sure_really: Are you sure? Really??
+      delete_account: Delete Account
+      description: Clicking "Delete Account" will delete all your data.
+    sessions:
+      new:
+        remember_me: Remember me
+        sign_in_with_facebook: Sign in with Facebook
+        sign_in_with_twitter: Sign in with Twitter
+    settings:
+      apps:
+        disconnected: Application has been disconnected
+        no_applications: No applications
+      email_notifications:
+        updated: Updated
+        unsubscribed: Unsubscribe successful
+      tokens:
+        created: Token has been created.
+        deleted: Token has been deleted.
+        updated: Token has been updated.
+        make_sure_to_copy: Make sure to copy your new personal access token now. You won’t be able to see it again.
+        new: Generate new token
+        no_tokens: No tokens
+    sign_in:
+      create:
+        mail_has_sent: An email has been sent to sign in.
+      new:
+        description_html: We'll send a link for sign in to the email you input.
+        sign_up_link_html: Don't have an account? %{link}
+    sign_in_callback:
+      show:
+        expired_html: Sign in link has expired. Please try again later.
+        signed_in: Welcome back!
+    sign_up:
+      create:
+        mail_has_sent: An email has been sent to create your account.
+      new:
+        description_html: We'll send a link for sign up to the email you input.
+    tracks:
+      episodes_you_have_watched: "Watched"
+      no_trackable_episodes: No trackable episodes
+      skip_episode_confirmation: Are you sure to skip this episode and show next episode?
+      see_records: See records
+      tracked: Your record has been tracked.
+    user_work_tags:
+      anime_list_tagged: "Anime list tagged '%{tag_name}'"
+    userland:
+      description_html: "Userland is the place to discover 3rd party applications which uses Anikuto API."
+      description_mobile_html: "Userland is the place to discover 3rd party applications which uses Anikuto API."
+      projects:
+        about_available: Please check this when the project is published and users can use it.
+        markdown_support: You can write in Markdown.
+      welcome: Welcome to Userland!
+    user_email_callbacks:
+      show:
+        expired: Email confirmation link has expired. Please try again.
+        updated: Email has been updated.
+    users:
+      _validators:
+        exists_active_oauth_applications: which you created are active.
+      allowed_locales_description: "This setting which languages you are more likely to see throughout the site, but you may still see other languages, especially english."
+      bye_bye: "Bye Bye... (´・ω;:.."
+      no_works: No works
+    work_records:
+      new:
+        write_your_comment: Write Your Comment! (optional)
+    work_images:
+      attach_image: Attach Image
+      deleted: Work image has been deleted.
+      saved: Work image has been saved.
+    works:
+      view_all_n_characters: View All %{n} Characters
+      view_all_n_episodes: View All %{n} Episodes
+      view_all_n_record_body_list: View All %{n} Comments
+      view_all_n_staffs: View All %{n} Staffs
+      creating_episodes_restricted_episodes_filled: "You can not add episodes because episodes are created enough."
+      creating_episodes_restricted_slots_exists: "You can not add episodes because slots have been added."

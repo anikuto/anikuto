@@ -1,0 +1,11 @@
+en:
+  email_confirmation_mailer:
+    sign_in_confirmation:
+      subject: Sign in to Anikuto
+    sign_up_confirmation:
+      subject: Finish creating your account on Anikuto
+    update_email_confirmation:
+      subject: Finish updating your email on Anikuto
+  forum_mailer:
+    comment_notification:
+      subject: "[Anikuto Forum] %{name} (@%{username}) has commented on the post %{post_title}"

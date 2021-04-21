@@ -1,0 +1,5 @@
+<p><%= @resource.username %>さん、こんにちは。</p>
+
+<p>Anikutoをご利用の前に、下のリンクをクリックしてメールアドレスの確認をお願いします。</p>
+
+<p><%= link_to 'メールアドレスを確認する', confirmation_url(confirmation_token: @token, host: @resource.anikuto_host) %></p>

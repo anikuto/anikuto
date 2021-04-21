@@ -1,0 +1,15 @@
+mutation (
+  $animeId: ID!,
+  $kind: StatusKind!
+) {
+  updateStatus(
+    input: {
+      animeId: $animeId,
+      kind: $kind
+    }
+  ) {
+    anime {
+      databaseId
+    }
+  }
+}

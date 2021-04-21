@@ -1,0 +1,8 @@
+「<%= link_to "#{@episode.work.title}", work_url(@episode.work, host: ENV.fetch("ANIKUTO_JP_URL")) %>」Episode has been added.<br>
+<br>
+<%= @episode.number %><br>
+<%= link_to db_episode_list_url(@episode.work, host: ENV.fetch("ANIKUTO_JP_URL")), db_episode_list_url(@episode.work, host: ENV.fetch("ANIKUTO_JP_URL")) %><br>
+<br>
+<br>
+---<br>
+<%= ENV['ANIKUTO_JP_URL'] %>

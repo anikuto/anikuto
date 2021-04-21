@@ -1,0 +1,8 @@
+en:
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: Confirmation instructions - Anikuto
+    sessions:
+      user:
+        signed_in: Welcome back!
