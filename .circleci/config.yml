@@ -6,7 +6,7 @@ jobs:
     # directory where steps will run
     working_directory: ~/anikuto
     docker:
-      - image: anikuto/ruby:2.7.3-node_14
+      - image: anikuto/ruby:2.7.3-node_13
         environment:
           BUNDLE_JOBS: 3
           BUNDLE_PATH: vendor/bundle
