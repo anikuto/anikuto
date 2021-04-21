@@ -1,7 +1,7 @@
 const glob = require('glob');
 const path = require('path');
 
-const ManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -63,12 +63,6 @@ module.exports = {
           },
           {
             loader: 'postcss-loader', // Run post css actions
-            options: {
-              plugins: function () {
-                // post css plugins, can be exported to postcss.config.js
-                return [require('precss'), require('autoprefixer')];
-              },
-            },
           },
           {
             loader: 'sass-loader', // compiles Sass to CSS, using Node Sass by default
@@ -97,7 +91,7 @@ module.exports = {
     extensions: ['.css', '.gif', '.jpeg', '.jpg', '.js', '.json', '.png', '.scss', '.svg', '.ts'],
   },
   plugins: [
-    new ManifestPlugin({
+    new WebpackManifestPlugin({
       fileName: 'manifest.json',
       publicPath: '/assets/',
       writeToFileEmit: true,
