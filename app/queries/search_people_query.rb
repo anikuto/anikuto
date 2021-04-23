@@ -27,6 +27,7 @@ class SearchPeopleQuery
       names
     ).each do |arg_name|
       next if @args[arg_name].nil?
+
       @collection = send(arg_name)
     end
 
@@ -34,9 +35,9 @@ class SearchPeopleQuery
       direction = @args[:order_by][:direction]
 
       @collection = case @args[:order_by][:field]
-      when "CREATED_AT"
+      when 'CREATED_AT'
         @collection.order(created_at: direction)
-      when "FAVORITE_PEOPLE_COUNT"
+      when 'FAVORITE_PEOPLE_COUNT'
         @collection.order(favorite_users_count: direction)
       end
     end

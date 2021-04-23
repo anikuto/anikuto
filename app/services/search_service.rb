@@ -35,7 +35,7 @@ class SearchService
   end
 
   def keyword_hira
-    return "" if @q.blank?
+    return '' if @q.blank?
 
     Moji.kata_to_hira(@q)
   end

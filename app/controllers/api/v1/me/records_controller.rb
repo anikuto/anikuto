@@ -35,7 +35,7 @@ module Api
           @episode_record.rating = @params.rating
           @episode_record.rating_state = @params.rating_state
           @episode_record.body = @params.comment
-          @episode_record.share_to_twitter = @params.share_twitter == "true"
+          @episode_record.share_to_twitter = @params.share_twitter == 'true'
           @episode_record.modify_body = true
           @episode_record.oauth_application = doorkeeper_token.application
           @episode_record.detect_locale!(:body)
@@ -65,9 +65,9 @@ module Api
         def render_validation_errors(record)
           errors = record.errors.full_messages.map do |message|
             {
-              type: "invalid_params",
+              type: 'invalid_params',
               message: message,
-              url: "http://example.com/docs/api/validations"
+              url: 'http://example.com/docs/api/validations'
             }
           end
 
@@ -79,7 +79,7 @@ module Api
             json: {
               errors: [
                 {
-                  type: "invalid_params",
+                  type: 'invalid_params',
                   message: message
                 }
               ]

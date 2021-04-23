@@ -17,17 +17,17 @@ module OrganizationDecorator
       hash[field] = case field
       when :url
         url = send(:url)
-        link_to(url, url, target: "_blank") if url.present?
+        link_to(url, url, target: '_blank') if url.present?
       when :wikipedia_url
         wikipedia_url = send(field)
         if wikipedia_url.present?
-          link_to(URI.decode(wikipedia_url), wikipedia_url, target: "_blank")
+          link_to(URI.decode(wikipedia_url), wikipedia_url, target: '_blank')
         end
       when :twitter_username
         username = send(:twitter_username)
         if username.present?
           url = "https://twitter.com/#{username}"
-          link_to("@#{username}", url, target: "_blank")
+          link_to("@#{username}", url, target: '_blank')
         end
       else
         send(field)

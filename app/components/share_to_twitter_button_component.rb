@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ShareToTwitterButtonComponent < ApplicationComponent
-  def initialize(text:, url:, hashtags: "", class_name: "")
+  def initialize(text:, url:, hashtags: '', class_name: '')
     @text = text
     @url = url
     @hashtags = hashtags

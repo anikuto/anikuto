@@ -21,8 +21,8 @@ module V4
 
     def work_detail_work_cache_key(work)
       [
-        "work-detail",
-        "work",
+        'work-detail',
+        'work',
         work.id,
         work.updated_at.rfc3339
       ].freeze
@@ -30,8 +30,8 @@ module V4
 
     def work_detail_vod_channels_cache_key(work)
       [
-        "work-detail",
-        "vod-channels",
+        'work-detail',
+        'vod-channels',
         work.id,
         work.updated_at.rfc3339
       ].freeze

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ShareToFacebookButtonComponent < ApplicationComponent
-  def initialize(url:, class_name: "")
+  def initialize(url:, class_name: '')
     @url = url
     @class_name = class_name
   end

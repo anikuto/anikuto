@@ -22,7 +22,7 @@ class SearchSeriesWorksQuery
       direction = @args[:order_by][:direction]
 
       @collection = case @args[:order_by][:field]
-      when "SEASON"
+      when 'SEASON'
         @collection.sort_season(sort_type: direction)
       end
     end

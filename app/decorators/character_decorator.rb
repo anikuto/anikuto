@@ -9,7 +9,8 @@ module CharacterDecorator
 
   def name_with_series
     return local_name if series.blank?
-    series_text = I18n.t("noun.series_with_name", series_name: series.local_name)
+
+    series_text = I18n.t('noun.series_with_name', series_name: series.local_name)
     "#{local_name} (#{series_text})"
   end
 

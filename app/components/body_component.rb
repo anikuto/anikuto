@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BodyComponent < ApplicationComponent
-  def initialize(height: nil, markdown: false, class_name: "")
+  def initialize(height: nil, markdown: false, class_name: '')
     @height = height
     @markdown = markdown
     @class_name = class_name

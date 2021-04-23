@@ -2,10 +2,9 @@
 
 describe Beta::Connections::ActivityConnection do
   let(:user) { create(:user) }
-  let(:id) { GraphQL::Schema::UniqueWithinType.encode(user.class.name, user.id) }
-  let!(:activity) { create(:create_episode_record_activity, user: user) }
+  let(:activity) { create(:create_episode_record_activity, user: user) }
   let!(:status) { create(:status, user: user) }
-  let!(:activity_2) { create(:activity, user: user, itemable: status) }
+  let(:id) { GraphQL::Schema::UniqueWithinType.encode(user.class.name, user.id) }
   let(:result) do
     query_string = <<~GRAPHQL
       query {
@@ -13,7 +12,7 @@ describe Beta::Connections::ActivityConnection do
           id
           ... on User {
             username
-            activities(orderBy: { field: CREATED_AT, direction: DESC }) {
+            activities {
               edges {
                 node {
                   ... on Record {
@@ -31,11 +30,11 @@ describe Beta::Connections::ActivityConnection do
     GRAPHQL
 
     res = Beta::AnikutoSchema.execute(query_string)
-    pp(res) if res["errors"]
+    pp(res) if res['errors']
     res
   end
 
-  it "fetches activities" do
+  it 'fetches activities' do
     expected = {
       data: {
         node: {

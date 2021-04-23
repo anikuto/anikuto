@@ -7,9 +7,9 @@ class MalLinkComponent < ApplicationComponent
   end
 
   def call
-    return "-" if work_entity.mal_anime_id.blank?
+    return '-' if work_entity.mal_anime_id.blank?
 
-    link_to link_title, work_entity.mal_anime_url, target: "_blank", rel: "noopener"
+    link_to link_title, work_entity.mal_anime_url, target: '_blank', rel: 'noopener'
   end
 
   private

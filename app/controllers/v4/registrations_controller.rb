@@ -2,7 +2,7 @@
 
 module V4
   class RegistrationsController < V4::ApplicationController
-    layout "simple"
+    layout 'simple'
 
     before_action :redirect_if_signed_in
 
@@ -43,7 +43,7 @@ module V4
         username: @form.username,
         email: @form.email
       ).build_relations
-      user.time_zone = cookies["ann_time_zone"].presence || "Asia/Tokyo"
+      user.time_zone = cookies['ann_time_zone'].presence || 'Asia/Tokyo'
       user.locale = locale
       user.confirmed_at = Time.zone.now
       user.setting.privacy_policy_agreed = true
@@ -55,14 +55,14 @@ module V4
         sign_in user
       end
 
-      flash[:notice] = t("messages.registrations.create.welcome")
+      flash[:notice] = t('messages.registrations.create.welcome')
       redirect_to(@confirmation.back.presence || root_path)
     end
 
     private
 
     def registration_form_attributes
-      @registration_form_attributes ||= params.to_unsafe_h["registration_form"]
+      @registration_form_attributes ||= params.to_unsafe_h['registration_form']
     end
   end
 end

@@ -5,7 +5,7 @@ module Doorkeeper
     def local_scopes
       scopes.to_a.map do |scope|
         I18n.t("doorkeeper.scopes.#{scope}")
-      end.join(", ")
+      end.join(', ')
     end
   end
 end

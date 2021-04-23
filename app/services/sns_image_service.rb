@@ -8,11 +8,11 @@ class SnsImageService
   end
 
   def save_og_image
-    save_sns_image(:facebook_og_image_url, "og:image")
+    save_sns_image(:facebook_og_image_url, 'og:image')
   end
 
   def save_twitter_image
-    save_sns_image(:twitter_image_url, "twitter:image")
+    save_sns_image(:twitter_image_url, 'twitter:image')
   end
 
   private
@@ -31,8 +31,8 @@ class SnsImageService
 
       return if image_html.blank?
 
-      @work.update_column(column, image_html.attr("content").to_s)
-    rescue
+      @work.update_column(column, image_html.attr('content').to_s)
+    rescue StandardError
       puts "error!: #{@work.id}"
     end
   end

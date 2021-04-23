@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-describe "GET /db/works/:work_id/episodes", type: :request do
-  context "user does not sign in" do
+describe 'GET /db/works/:work_id/episodes', type: :request do
+  context 'user does not sign in' do
     let!(:episode) { create(:episode) }
 
-    it "responses episode list" do
+    it 'responses episode list' do
       get "/db/works/#{episode.work_id}/episodes"
 
       expect(response.status).to eq(200)
@@ -12,7 +12,7 @@ describe "GET /db/works/:work_id/episodes", type: :request do
     end
   end
 
-  context "user signs in" do
+  context 'user signs in' do
     let!(:user) { create(:registered_user) }
     let!(:episode) { create(:episode) }
 
@@ -20,7 +20,7 @@ describe "GET /db/works/:work_id/episodes", type: :request do
       login_as(user, scope: :user)
     end
 
-    it "responses work list" do
+    it 'responses work list' do
       get "/db/works/#{episode.work_id}/episodes"
 
       expect(response.status).to eq(200)

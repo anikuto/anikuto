@@ -7,9 +7,9 @@ class SyobocalLinkComponent < ApplicationComponent
   end
 
   def call
-    return "-" if work_entity.syobocal_tid.blank?
+    return '-' if work_entity.syobocal_tid.blank?
 
-    link_to link_title, work_entity.syobocal_url, target: "_blank", rel: "noopener"
+    link_to link_title, work_entity.syobocal_url, target: '_blank', rel: 'noopener'
   end
 
   private

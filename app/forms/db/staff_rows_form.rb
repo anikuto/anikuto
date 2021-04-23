@@ -16,7 +16,7 @@ module Db
 
     def attrs_list
       roles = %i(ja en).
-        map { |l| I18n.t("enumerize.staff.role", locale: l).invert }.
+        map { |l| I18n.t('enumerize.staff.role', locale: l).invert }.
         inject(&:merge)
 
       staffs_count = @work.staffs.count
@@ -60,7 +60,8 @@ module Db
       fetched_rows.each do |row_data|
         row_data.slice(:resource).each do |_, data|
           next if data[:id].present?
-          i18n_path = "activemodel.errors.forms.db/staff_rows_form.invalid"
+
+          i18n_path = 'activemodel.errors.forms.db/staff_rows_form.invalid'
           errors.add(:rows, I18n.t(i18n_path, value: data[:value]))
         end
       end

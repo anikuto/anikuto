@@ -16,15 +16,15 @@ class SeriesEntity < ApplicationEntity
   def self.from_node(series_node)
     attrs = {}
 
-    if name = series_node["name"]
+    if name = series_node['name']
       attrs[:name] = name
     end
 
-    if name_en = series_node["nameEn"]
+    if name_en = series_node['nameEn']
       attrs[:name_en] = name_en
     end
 
-    series_anime_edges = series_node.dig("animeList", "edges")
+    series_anime_edges = series_node.dig('animeList', 'edges')
     attrs[:series_anime_list] = SeriesAnimeEntity.from_edges(series_anime_edges || [])
 
     new attrs

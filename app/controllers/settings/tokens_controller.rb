@@ -12,7 +12,7 @@ module Settings
       @token = current_user.oauth_access_tokens.new(access_token_params)
 
       if @token.save(context: :personal)
-        flash[:notice] = t("messages.settings.tokens.created")
+        flash[:notice] = t('messages.settings.tokens.created')
         flash[:created_token] = { id: @token.id, token: @token.token }
         redirect_to settings_apps_path
       else
@@ -29,7 +29,7 @@ module Settings
       @token.attributes = access_token_params
 
       if @token.save
-        flash[:notice] = t("messages.settings.tokens.updated")
+        flash[:notice] = t('messages.settings.tokens.updated')
         redirect_to settings_apps_path
       else
         render :edit
@@ -41,7 +41,7 @@ module Settings
 
       @token.destroy
 
-      flash[:notice] = t("messages.settings.tokens.deleted")
+      flash[:notice] = t('messages.settings.tokens.deleted')
       redirect_to settings_apps_path
     end
 

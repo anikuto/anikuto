@@ -20,34 +20,35 @@ class ActivityGroupEntity < ApplicationEntity
   def self.from_node(activity_group_node)
     attrs = {}
 
-    if id = activity_group_node["id"]
+    if id = activity_group_node['id']
       attrs[:id] = id
     end
 
-    if itemable_type = activity_group_node["itemableType"]
+    if itemable_type = activity_group_node['itemableType']
       attrs[:itemable_type] = itemable_type.downcase
     end
 
-    if single = activity_group_node["single"]
+    if single = activity_group_node['single']
       attrs[:single] = single
     end
 
-    if activities_count = activity_group_node["activitiesCount"]
+    if activities_count = activity_group_node['activitiesCount']
       attrs[:activities_count] = activities_count
     end
 
-    if created_at = activity_group_node["createdAt"]
+    if created_at = activity_group_node['createdAt']
       attrs[:created_at] = created_at
     end
 
-    if user_node = activity_group_node["user"]
+    if user_node = activity_group_node['user']
       attrs[:user] = UserEntity.from_node(user_node)
     end
 
-    activity_nodes = activity_group_node.dig("activities", "nodes")
-    attrs[:itemables] = user_node && activity_nodes ? ActivityEntity.from_nodes(activity_nodes, user_node: user_node).map(&:itemable) : []
+    activity_nodes = activity_group_node.dig('activities', 'nodes')
+    attrs[:itemables] =
+      user_node && activity_nodes ? ActivityEntity.from_nodes(activity_nodes, user_node: user_node).map(&:itemable) : []
 
-    if page_info_node = activity_group_node.dig("activities", "pageInfo")
+    if page_info_node = activity_group_node.dig('activities', 'pageInfo')
       attrs[:activities_page_info] = PageInfoEntity.from_node(page_info_node)
     end
 
@@ -55,14 +56,14 @@ class ActivityGroupEntity < ApplicationEntity
   end
 
   def status?
-    itemable_type == "status"
+    itemable_type == 'status'
   end
 
   def episode_record?
-    itemable_type == "episode_record"
+    itemable_type == 'episode_record'
   end
 
   def anime_record?
-    itemable_type == "anime_record"
+    itemable_type == 'anime_record'
   end
 end

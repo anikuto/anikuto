@@ -13,9 +13,9 @@ class UserEpisodeRecordsQuery
     @episode_records = @episode_records.where.not(user_id: @user.mute_users.pluck(:muted_user_id)) if @user
     @episode_records = join_likes if @user
 
-    selects = ["episode_records.*"]
-    selects << "likes.id AS user_like_id" if @user
-    @episode_records.select(selects.join(", "))
+    selects = ['episode_records.*']
+    selects << 'likes.id AS user_like_id' if @user
+    @episode_records.select(selects.join(', '))
   end
 
   private

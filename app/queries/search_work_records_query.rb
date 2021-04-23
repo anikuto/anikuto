@@ -28,9 +28,9 @@ class SearchWorkRecordsQuery
       direction = args[:order_by][:direction]
 
       results = case args[:order_by][:field]
-      when "CREATED_AT"
+      when 'CREATED_AT'
         results.order(created_at: direction)
-      when "LIKES_COUNT"
+      when 'LIKES_COUNT'
         results.order(likes_count: direction)
       end
     end

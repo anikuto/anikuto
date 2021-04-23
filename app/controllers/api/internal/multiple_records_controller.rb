@@ -8,7 +8,7 @@ module Api
       def create
         CreateMultipleEpisodeRecordsJob.perform_later(current_user.id, params[:episode_ids])
 
-        flash[:notice] = t "messages.multiple_records.create.saved"
+        flash[:notice] = t 'messages.multiple_records.create.saved'
         head 201
       end
     end

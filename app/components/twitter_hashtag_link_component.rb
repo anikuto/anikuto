@@ -7,9 +7,9 @@ class TwitterHashtagLinkComponent < ApplicationComponent
   end
 
   def call
-    return "-" if entity.twitter_hashtag.blank?
+    return '-' if entity.twitter_hashtag.blank?
 
-    link_to link_title, entity.twitter_hashtag_url, target: "_blank", rel: "noopener"
+    link_to link_title, entity.twitter_hashtag_url, target: '_blank', rel: 'noopener'
   end
 
   private

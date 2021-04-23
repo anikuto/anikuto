@@ -9,7 +9,7 @@ module Api
         @work = Work.only_kept.find(params[:work_id])
         channel_work = current_user.channel_works.where(work: @work).first_or_initialize
 
-        if params[:channel_id] == "no_select"
+        if params[:channel_id] == 'no_select'
           channel_work.destroy if channel_work.present?
           return head(200)
         end

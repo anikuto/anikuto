@@ -6,7 +6,7 @@ class FacebookService
   end
 
   def provider
-    @provider ||= @user.providers.find_by(name: "facebook")
+    @provider ||= @user.providers.find_by(name: 'facebook')
   end
 
   def client

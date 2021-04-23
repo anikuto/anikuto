@@ -23,7 +23,7 @@ module Api
           work_comment = current_user.work_comments.new(work: work) if work_comment.blank?
 
           if params[:comment].blank? || params[:comment] != work_comment.body
-            work_comment.body = params[:comment].presence || ""
+            work_comment.body = params[:comment].presence || ''
             work_comment.save!
           end
         end

@@ -5,7 +5,7 @@ module Api
     class WorkFriendsController < Api::Internal::ApplicationController
       def index
         return render(json: []) unless user_signed_in?
-        return render(json: []) if params[:display_option] != "list_detailed"
+        return render(json: []) if params[:display_option] != 'list_detailed'
         return render(json: []) if work_ids.empty?
 
         friends_data = Work.watching_friends_data(work_ids, current_user)
@@ -23,7 +23,7 @@ module Api
             map do |ud|
               {
                 username: ud[:user].username,
-                avatar_url: helpers.ann_image_url(ud[:user].profile, :image, size: "30x30")
+                avatar_url: helpers.ann_image_url(ud[:user].profile, :image, size: '30x30')
               }
             end
 
@@ -36,9 +36,9 @@ module Api
       private
 
       def work_ids
-        ids = params[:work_ids]&.split(",")
+        ids = params[:work_ids]&.split(',')
 
-        return [] if !ids || !ids.all? { |id| %r{\A[0-9]+\z}.match?(id) }
+        return [] if !ids || !ids.all? { |id| /\A[0-9]+\z/.match?(id) }
 
         ids.map(&:to_i)
       end

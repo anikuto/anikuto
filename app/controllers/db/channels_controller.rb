@@ -25,7 +25,7 @@ module Db
 
       @channel.save
 
-      redirect_to db_channel_list_path, notice: t("messages._common.created")
+      redirect_to db_channel_list_path, notice: t('messages._common.created')
     end
 
     def edit
@@ -43,7 +43,7 @@ module Db
 
       @channel.save
 
-      redirect_to db_channel_list_path, notice: t("messages._common.updated")
+      redirect_to db_channel_list_path, notice: t('messages._common.updated')
     end
 
     def destroy
@@ -54,7 +54,7 @@ module Db
 
       redirect_back(
         fallback_location: db_channel_list_path,
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

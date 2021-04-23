@@ -23,8 +23,8 @@ module V4
 
     def profile_user_cache_key(user)
       [
-        "profile",
-        "user",
+        'profile',
+        'user',
         user.id,
         user.updated_at.rfc3339,
         user.records_count,

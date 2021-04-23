@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-describe "GraphQL API Query" do
-  describe "searchOrganizations" do
+describe 'GraphQL API Query' do
+  describe 'searchOrganizations' do
     let!(:organization1) { create(:organization, favorite_users_count: 10) }
     let!(:organization2) { create(:organization, favorite_users_count: 30) }
     let!(:organization3) { create(:organization, favorite_users_count: 20) }
 
-    context "when `anikutoIds` argument is specified" do
+    context 'when `anikutoIds` argument is specified' do
       let(:result) do
         query_string = <<~QUERY
           query {
@@ -21,22 +21,22 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
-      it "shows organization name" do
-        expect(result.dig("data", "searchOrganizations", "edges")).to match_array([
+      it 'shows organization name' do
+        expect(result.dig('data', 'searchOrganizations', 'edges')).to match_array([
           {
-            "node" => {
-              "name" => organization1.name
+            'node' => {
+              'name' => organization1.name
             }
           }
         ])
       end
     end
 
-    context "when `names` argument is specified" do
+    context 'when `names` argument is specified' do
       let(:result) do
         query_string = <<~QUERY
           query {
@@ -51,22 +51,22 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
-      it "shows organization name" do
-        expect(result.dig("data", "searchOrganizations", "edges")).to match_array([
+      it 'shows organization name' do
+        expect(result.dig('data', 'searchOrganizations', 'edges')).to match_array([
           {
-            "node" => {
-              "name" => organization3.name
+            'node' => {
+              'name' => organization3.name
             }
           }
         ])
       end
     end
 
-    context "when `orderBy` argument is specified" do
+    context 'when `orderBy` argument is specified' do
       let(:result) do
         query_string = <<~QUERY
           query {
@@ -82,28 +82,28 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
-      it "shows ordered organization names" do
-        expect(result.dig("data", "searchOrganizations", "edges")).to match_array([
+      it 'shows ordered organization names' do
+        expect(result.dig('data', 'searchOrganizations', 'edges')).to match_array([
           {
-            "node" => {
-              "name" => organization2.name,
-              "favoriteOrganizationsCount" => 30
+            'node' => {
+              'name' => organization2.name,
+              'favoriteOrganizationsCount' => 30
             }
           },
           {
-            "node" => {
-              "name" => organization3.name,
-              "favoriteOrganizationsCount" => 20
+            'node' => {
+              'name' => organization3.name,
+              'favoriteOrganizationsCount' => 20
             }
           },
           {
-            "node" => {
-              "name" => organization1.name,
-              "favoriteOrganizationsCount" => 10
+            'node' => {
+              'name' => organization1.name,
+              'favoriteOrganizationsCount' => 10
             }
           }
         ])

@@ -5,7 +5,7 @@
     "webpack:start": "webpack-dev-server",
     "webpack:watch": "webpack -w --progress",
     "heroku-postbuild": "NODE_ENV=production webpack",
-    "graphql:update-api-reference": "bundle exec rake graphql:dump_schema && bundle exec rake graphql:build_docs && cp -rf ./tmp/docs/graphql-api/reference/ ../anikuto-developers-jp/docs/.vuepress/public/graphql-api/reference"
+    "graphql:update-api-reference": "bundle exec rake graphql:dump_schema && bundle exec rake graphql:build_docs && cp -rf ./tmp/docs/graphql-api/reference/ ../anikuto-developers/docs/.vuepress/public/graphql-api/reference"
   },
   "dependencies": {
     "@babel/core": "^7.11.4",

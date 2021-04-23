@@ -20,9 +20,9 @@ class SearchEpisodeRecordsQuery
       direction = @args[:order_by][:direction]
 
       @collection = case @args[:order_by][:field]
-      when "CREATED_AT"
+      when 'CREATED_AT'
         @collection.order(created_at: direction)
-      when "LIKES_COUNT"
+      when 'LIKES_COUNT'
         @collection.order(likes_count: direction)
       end
     end

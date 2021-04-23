@@ -2,7 +2,7 @@
 
 module Legacy
   class SessionsController < Devise::SessionsController
-    layout "simple"
+    layout 'simple'
 
     def new
       store_location_for(:user, params[:back]) if params[:back].present?
@@ -13,7 +13,7 @@ module Legacy
       super do |user|
         if !user.confirmed? && user.registered_after_email_confirmation_required?
           sign_out
-          return redirect_to root_path, alert: t("devise.failure.user.unconfirmed")
+          return redirect_to root_path, alert: t('devise.failure.user.unconfirmed')
         end
       end
     end

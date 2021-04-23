@@ -13,8 +13,8 @@ module Db
     validate :valid_time
     validate :valid_resource
 
-    def set_default_rows_by_programs(program_ids, time_zone: "Asia/Tokyo")
-      program_ids.split(",").each do |program_id|
+    def set_default_rows_by_programs(program_ids, time_zone: 'Asia/Tokyo')
+      program_ids.split(',').each do |program_id|
         set_default_rows_by_program(program_id, time_zone)
       end
     end
@@ -44,12 +44,12 @@ module Db
       14.times do |i|
         rows << [
           program.id,
-          (base_started_at + (i * 7).days).in_time_zone(time_zone).strftime("%Y-%m-%d %H:%M"),
+          (base_started_at + (i * 7).days).in_time_zone(time_zone).strftime('%Y-%m-%d %H:%M')
         ]
       end
 
-      self.rows = (self.rows || "") + rows.map do |r|
-        r.join(",")
+      self.rows = (self.rows || '') + rows.map do |r|
+        r.join(',')
       end.join("\n") + "\n"
     end
 
@@ -89,7 +89,7 @@ module Db
         begin
           Time.parse(started_at)
         rescue ArgumentError
-          i18n_path = "activemodel.errors.forms.db/slot_rows_form.invalid_start_time"
+          i18n_path = 'activemodel.errors.forms.db/slot_rows_form.invalid_start_time'
           errors.add(:rows, I18n.t(i18n_path))
         end
       end
@@ -100,7 +100,7 @@ module Db
         row_data.slice(:channel, :program).each do |_, data|
           next if data[:id]
 
-          i18n_path = "activemodel.errors.forms.db/slot_rows_form.invalid"
+          i18n_path = 'activemodel.errors.forms.db/slot_rows_form.invalid'
           errors.add(:rows, I18n.t(i18n_path, value: data[:value]))
         end
       end

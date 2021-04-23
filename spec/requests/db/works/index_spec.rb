@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-describe "GET /db/works", type: :request do
-  context "user does not sign in" do
+describe 'GET /db/works', type: :request do
+  context 'user does not sign in' do
     let!(:work) { create(:work) }
 
-    it "responses work list" do
-      get "/db/works"
+    it 'responses work list' do
+      get '/db/works'
 
       expect(response.status).to eq(200)
       expect(response.body).to include(work.title)
     end
   end
 
-  context "user signs in" do
+  context 'user signs in' do
     let!(:user) { create(:registered_user) }
     let!(:work) { create(:work) }
 
@@ -20,8 +20,8 @@ describe "GET /db/works", type: :request do
       login_as(user, scope: :user)
     end
 
-    it "responses work list" do
-      get "/db/works"
+    it 'responses work list' do
+      get '/db/works'
 
       expect(response.status).to eq(200)
       expect(response.body).to include(work.title)

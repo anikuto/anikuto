@@ -35,7 +35,7 @@ module Db
         @form.reset_number!
       end
 
-      redirect_to db_slot_list_path(@work), notice: t("resources.slot.created")
+      redirect_to db_slot_list_path(@work), notice: t('resources.slot.created')
     end
 
     def edit
@@ -59,7 +59,7 @@ module Db
 
       @slot.save_all_and_create_activity!
 
-      redirect_to db_slot_list_path(@work, program_id: @slot.program_id), notice: t("resources.slot.updated")
+      redirect_to db_slot_list_path(@work, program_id: @slot.program_id), notice: t('resources.slot.updated')
     end
 
     def destroy
@@ -70,7 +70,7 @@ module Db
 
       redirect_back(
         fallback_location: db_work_list_path,
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

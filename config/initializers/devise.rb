@@ -3,22 +3,22 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.omniauth :facebook,
-    ENV.fetch("FACEBOOK_APP_ID"), ENV.fetch("FACEBOOK_SECRET_KEY"),
-    scope: "email,public_profile"
+    ENV.fetch('FACEBOOK_APP_ID'), ENV.fetch('FACEBOOK_SECRET_KEY'),
+    scope: 'email,public_profile'
 
   config.omniauth :twitter,
-    ENV.fetch("TWITTER_CONSUMER_KEY"), ENV.fetch("TWITTER_CONSUMER_SECRET")
+    ENV.fetch('TWITTER_CONSUMER_KEY'), ENV.fetch('TWITTER_CONSUMER_SECRET')
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  config.secret_key = ENV.fetch("DEVISE_SECRET")
+  config.secret_key = ENV.fetch('DEVISE_SECRET')
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = "Anikuto <noreply@example.com>"
+  config.mailer_sender = 'Anikuto <noreply@example.com>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -27,7 +27,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require "devise/orm/active_record"
+  require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -243,8 +243,8 @@ Devise.setup do |config|
   #
   config.warden do |manager|
     manager.failure_app = Anikuto::Devise::CustomFailure
-  #   manager.intercept_401 = false
-  #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
+    #   manager.intercept_401 = false
+    #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   end
 
   # ==> Mountable engine configurations
@@ -261,5 +261,5 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  config.parent_controller = "V4::ApplicationController"
+  config.parent_controller = 'V4::ApplicationController'
 end

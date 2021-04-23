@@ -22,7 +22,7 @@ module Db
 
       @series.save_and_create_activity!
 
-      redirect_to db_series_list_path, notice: t("messages._common.created")
+      redirect_to db_series_list_path, notice: t('messages._common.created')
     end
 
     def edit
@@ -41,7 +41,7 @@ module Db
 
       @series.save_and_create_activity!
 
-      redirect_to db_edit_series_path(@series), notice: t("messages._common.updated")
+      redirect_to db_edit_series_path(@series), notice: t('messages._common.updated')
     end
 
     def destroy
@@ -52,7 +52,7 @@ module Db
 
       redirect_back(
         fallback_location: db_series_list_path,
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

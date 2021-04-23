@@ -19,7 +19,7 @@ class SearchTrailersQuery
       direction = @args[:order_by][:direction]
 
       @collection = case @args[:order_by][:field]
-      when "SORT_NUMBER"
+      when 'SORT_NUMBER'
         @collection.order(sort_number: direction)
       end
     end

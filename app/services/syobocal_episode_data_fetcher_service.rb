@@ -9,7 +9,7 @@ class SyobocalEpisodeDataFetcherService
     client = SyoboiCalendar::Client.new
     episodes = Episode.
       only_kept.
-      where(title: [nil, ""]).
+      where(title: [nil, '']).
       where.not(raw_number: nil).
       after(now - 7.days).
       joins(:work, :slots).
@@ -27,7 +27,7 @@ class SyobocalEpisodeDataFetcherService
       next unless title.sub_titles
 
       sub_titles = title.sub_titles.split("\n").map do |st|
-        ary = st.split("*") # `"*01*アンダーワールド"` => `["", "01", "アンダーワールド"]`
+        ary = st.split('*') # `"*01*アンダーワールド"` => `["", "01", "アンダーワールド"]`
         [ary[1].to_i.to_s, ary[2]]
       end.to_h
       next if sub_titles.empty?

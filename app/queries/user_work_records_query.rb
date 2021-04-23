@@ -14,10 +14,10 @@ class UserWorkRecordsQuery
     @work_records = join_likes if @user
     @work_records = join_library_entries if @user
 
-    selects = ["work_records.*"]
-    selects << "likes.id AS user_like_id" if @user
-    selects << "library_entries.id AS user_library_entry_id" if @user
-    @work_records.select(selects.join(", "))
+    selects = ['work_records.*']
+    selects << 'likes.id AS user_like_id' if @user
+    selects << 'library_entries.id AS user_library_entry_id' if @user
+    @work_records.select(selects.join(', '))
   end
 
   private

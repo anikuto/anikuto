@@ -7,9 +7,9 @@ class TwitterProfileLinkComponent < ApplicationComponent
   end
 
   def call
-    return "-" if entity.twitter_username.blank?
+    return '-' if entity.twitter_username.blank?
 
-    link_to link_title, entity.twitter_profile_url, target: "_blank", rel: "noopener"
+    link_to link_title, entity.twitter_profile_url, target: '_blank', rel: 'noopener'
   end
 
   private

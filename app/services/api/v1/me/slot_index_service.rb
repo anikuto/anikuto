@@ -25,7 +25,7 @@ module Api
         def filter_unwatched
           unwatched = @params.filter_unwatched
 
-          return @collection if unwatched.blank? || unwatched == "false"
+          return @collection if unwatched.blank? || unwatched == 'false'
 
           UserSlotsQuery.new(
             @user,
@@ -36,38 +36,45 @@ module Api
 
         def filter_channel_ids
           return @collection if @params.filter_channel_ids.blank?
+
           @collection.where(channel_id: @params.filter_channel_ids)
         end
 
         def filter_work_ids
           return @collection if @params.filter_work_ids.blank?
+
           @collection.where(work_id: @params.filter_work_ids)
         end
 
         def filter_started_at_gt
           return @collection if @params.filter_started_at_gt.blank?
+
           datetime = DateTime.parse(@params.filter_started_at_gt)
-          @collection.where("started_at > ?", datetime)
+          @collection.where('started_at > ?', datetime)
         end
 
         def filter_started_at_lt
           return @collection if @params.filter_started_at_lt.blank?
+
           datetime = DateTime.parse(@params.filter_started_at_lt)
-          @collection.where("started_at < ?", datetime)
+          @collection.where('started_at < ?', datetime)
         end
 
         def filter_rebroadcast
           return @collection if @params.filter_rebroadcast.blank?
-          @collection.where(rebroadcast: (@params.filter_rebroadcast == "true"))
+
+          @collection.where(rebroadcast: (@params.filter_rebroadcast == 'true'))
         end
 
         def filter_status
           return @collection if @params.filter_status.blank?
+
           @collection.merge(@user.library_entries.with_status(@params.filter_status))
         end
 
         def sort_started_at
           return @collection if @params.sort_started_at.blank?
+
           @collection.reorder(started_at: @params.sort_started_at)
         end
       end

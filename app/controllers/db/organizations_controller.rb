@@ -26,7 +26,7 @@ module Db
 
       @form.save!
 
-      redirect_to db_organization_list_path, notice: t("resources.person.created")
+      redirect_to db_organization_list_path, notice: t('resources.person.created')
     end
 
     def edit
@@ -45,7 +45,7 @@ module Db
 
       @organization.save_and_create_activity!
 
-      redirect_to db_edit_organization_path(@organization), notice: t("resources.person.updated")
+      redirect_to db_edit_organization_path(@organization), notice: t('resources.person.updated')
     end
 
     def destroy
@@ -56,7 +56,7 @@ module Db
 
       redirect_back(
         fallback_location: db_organization_list_path,
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

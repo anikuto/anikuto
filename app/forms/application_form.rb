@@ -35,7 +35,7 @@ class ApplicationForm
   def error_messages
     return [] unless validation_result
 
-    separator = I18n.locale == :ja ? "" : " "
+    separator = I18n.locale == :ja ? '' : ' '
     validation_result.errors.to_h.map do |attr_name, predicates|
       [
         self.class.human_attribute_name(attr_name),
@@ -54,7 +54,7 @@ class ApplicationForm
 
   def contract
     form_class_name = self.class.name
-    contract_class_name = form_class_name.sub(%r{Form\z}, "Contract")
+    contract_class_name = form_class_name.sub(/Form\z/, 'Contract')
 
     ApplicationContract.const_get(contract_class_name)
   end

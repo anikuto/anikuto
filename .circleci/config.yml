@@ -2,6 +2,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: 3d1ff9e6a73df65a89dd8e55789b40fc3d44a2ee588068b2c900504309e27077
     parallelism: 1
     # directory where steps will run
     working_directory: ~/anikuto
@@ -11,7 +13,6 @@ jobs:
           BUNDLE_JOBS: 3
           BUNDLE_PATH: vendor/bundle
           BUNDLE_RETRY: 3
-          CC_TEST_REPORTER_ID: 3d1ff9e6a73df65a89dd8e55789b40fc3d44a2ee588068b2c900504309e27077
           COVERAGE: true
           POSTGRES_HOST: localhost
           RAILS_ENV: test

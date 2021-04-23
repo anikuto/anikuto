@@ -17,7 +17,7 @@ module Settings
       access_tokens = current_user.oauth_access_tokens.where(application_id: params[:app_id])
       access_tokens.each(&:revoke)
 
-      flash[:notice] = t("messages.settings.apps.disconnected")
+      flash[:notice] = t('messages.settings.apps.disconnected')
       redirect_back fallback_location: settings_apps_path
     end
   end

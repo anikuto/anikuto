@@ -35,6 +35,7 @@ class SearchWorksQuery
       state
     ).each do |arg_name|
       next if @args[arg_name].nil?
+
       @collection = send(arg_name)
     end
 
@@ -42,11 +43,11 @@ class SearchWorksQuery
       direction = @args[:order_by][:direction]
 
       @collection = case @args[:order_by][:field]
-      when "CREATED_AT"
+      when 'CREATED_AT'
         @collection.order(created_at: direction)
-      when "SEASON"
+      when 'SEASON'
         @collection.order_by_season(direction)
-      when "WATCHERS_COUNT"
+      when 'WATCHERS_COUNT'
         @collection.order(watchers_count: direction)
       end
     end

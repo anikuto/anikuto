@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProfileImageComponent < ApplicationComponent
-  def initialize(image_url_1x:, alt:, bg_color: "#F1F1F1", class_name: "", img_options: {})
+  def initialize(image_url_1x:, alt:, bg_color: '#F1F1F1', class_name: '', img_options: {})
     @image_url_1x = image_url_1x
     @alt = alt
     @bg_color = bg_color
@@ -24,8 +24,8 @@ class ProfileImageComponent < ApplicationComponent
 
   def img_class_name
     classes = %w(c-profile-image img-fluid img-thumbnail js-lazy rounded-circle)
-    classes += class_name.split(" ")
-    classes.join(" ")
+    classes += class_name.split(' ')
+    classes.join(' ')
   end
 
   def dummy_src

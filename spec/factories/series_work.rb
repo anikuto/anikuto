@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :series_work do
     series
     work
-    summary { "TVシリーズ" }
+    summary { 'TVシリーズ' }
 
     trait :published do
       unpublished_at { nil }

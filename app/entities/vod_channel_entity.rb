@@ -14,16 +14,16 @@ class VodChannelEntity < ApplicationEntity
   def self.from_node(channel_node, anime_entity:)
     attrs = {}
 
-    if database_id = channel_node["databaseId"]
+    if database_id = channel_node['databaseId']
       attrs[:database_id] = database_id
     end
 
-    if name = channel_node["name"]
+    if name = channel_node['name']
       attrs[:name] = name
     end
 
     attrs[:programs] = anime_entity.programs.select do |program_entity|
-      program_entity.channel.database_id == channel_node["databaseId"]
+      program_entity.channel.database_id == channel_node['databaseId']
     end
 
     new attrs

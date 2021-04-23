@@ -17,12 +17,14 @@ module Api
 
       def sort_likes_count
         return @collection if @params.sort_likes_count.blank?
+
         @collection.order(likes_count: @params.sort_likes_count)
       end
 
       def filter_has_record_comment
         return @collection if @params.filter_has_record_comment.blank?
-        return @collection.with_body if @params.filter_has_record_comment == "true"
+        return @collection.with_body if @params.filter_has_record_comment == 'true'
+
         @collection.with_no_body
       end
     end

@@ -16,7 +16,7 @@ module Settings
       @user.save(validate: false)
       bypass_sign_in(@user)
 
-      redirect_to account_path, notice: t("messages.accounts.updated")
+      redirect_to account_path, notice: t('messages.accounts.updated')
     end
 
     private
@@ -24,7 +24,7 @@ module Settings
     def render_account_page
       @user_email_form = UserEmailForm.new(email: current_user.email)
 
-      render "/accounts/show"
+      render '/accounts/show'
     end
 
     def user_params

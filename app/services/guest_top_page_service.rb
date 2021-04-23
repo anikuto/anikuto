@@ -3,14 +3,14 @@
 class GuestTopPageService
   def self.season_top_work
     Work.only_kept.
-      by_season(ENV.fetch("ANIKUTO_CURRENT_SEASON")).
+      by_season(ENV.fetch('ANIKUTO_CURRENT_SEASON')).
       order(watchers_count: :desc).
       first
   end
 
   def self.season_works
     Work.only_kept.
-      by_season(ENV.fetch("ANIKUTO_CURRENT_SEASON")).
+      by_season(ENV.fetch('ANIKUTO_CURRENT_SEASON')).
       where.not(id: season_top_work.id).
       order(watchers_count: :desc).
       limit(12)

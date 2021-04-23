@@ -20,7 +20,7 @@ module Userland
         @project.save!(validate: false)
       end
 
-      flash[:notice] = t "messages._common.created"
+      flash[:notice] = t 'messages._common.created'
       redirect_to userland_project_path(@project)
     end
 
@@ -41,7 +41,7 @@ module Userland
       @project.detect_locale!(:summary)
 
       if @project.save
-        flash[:notice] = t("messages._common.updated")
+        flash[:notice] = t('messages._common.updated')
         redirect_to userland_project_path(@project)
       else
         render :edit
@@ -52,7 +52,7 @@ module Userland
       @project = UserlandProject.find(params[:id])
       authorize @project, :destroy?
       @project.destroy
-      redirect_to userland_root_path, notice: t("messages._common.deleted")
+      redirect_to userland_root_path, notice: t('messages._common.deleted')
     end
 
     private

@@ -15,7 +15,8 @@ module Api
 
       def filter_usernames
         return @collection if @params.filter_usernames.blank?
-        @collection.where(username: @params.filter_usernames.split(","))
+
+        @collection.where(username: @params.filter_usernames.split(','))
       end
     end
   end

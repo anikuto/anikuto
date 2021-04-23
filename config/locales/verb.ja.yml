@@ -1,0 +1,37 @@
+ja:
+  verb:
+    agree: 同意する
+    attach: 選択する
+    check_all: 全て選択する
+    close: 閉じる
+    comment: コメントする
+    create: 作成する
+    delete: 削除する
+    edit: 編集する
+    explore: 見つける
+    follow: フォロー
+    hide: 隠す
+    more: もっと見る
+    mute: ミュートする
+    next: 次へ
+    post: 投稿する
+    previous: 前へ
+    regist: 登録する
+    revoke: 接続解除する
+    search: 検索する
+    send: 送信する
+    sign_in: ログイン
+    sign_out: ログアウト
+    skip: スキップする
+    state_change: 状態変更
+    submit: 送信する
+    track: 記録する
+    tweet: ツイートする
+    uncheck_all: 全て解除する
+    unmute: ミュートを解除する
+    update: 更新する
+    upload: アップロード
+    view: 見る
+    view_all: 全て見る
+    view_more: もっと見る
+    view_work_detail: 作品情報を見る

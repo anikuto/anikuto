@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :channel_group do
     sequence(:sc_chgid)
-    name { "テレビ 関東" }
+    name { 'テレビ 関東' }
 
     trait :published do
       unpublished_at { nil }

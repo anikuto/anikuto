@@ -18,11 +18,13 @@ module Api
 
         def filter_actions
           return @collection if @params.filter_actions.blank?
+
           @collection.where(action: @params.latest_filter_actions)
         end
 
         def filter_muted
-          return @collection if @params.filter_muted == "false"
+          return @collection if @params.filter_muted == 'false'
+
           mute_user_ids = @user.mute_users.pluck(:muted_user_id)
           @collection.where.not(user_id: mute_user_ids)
         end

@@ -19,7 +19,7 @@ module Api
 
       def order_property(sort_type)
         case sort_type
-        when "started_at_asc"
+        when 'started_at_asc'
           OrderProperty.new(:started_at, :asc)
         else
           OrderProperty.new(:started_at, :desc)

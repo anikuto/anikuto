@@ -5,10 +5,10 @@ module Db
     before_action :authenticate_user!, only: %i(new create edit update destroy)
 
     def index
-      @is_no_episodes = search_params[:no_episodes] == "1"
-      @is_no_image = search_params[:no_image] == "1"
-      @is_no_release_season = search_params[:no_release_season] == "1"
-      @is_no_slots = search_params[:no_slots] == "1"
+      @is_no_episodes = search_params[:no_episodes] == '1'
+      @is_no_image = search_params[:no_image] == '1'
+      @is_no_release_season = search_params[:no_release_season] == '1'
+      @is_no_slots = search_params[:no_slots] == '1'
       @season_slugs = search_params[:season_slugs]
 
       @works = Work.without_deleted.preload(:work_image)
@@ -34,7 +34,7 @@ module Db
 
       @work.save_and_create_activity!
 
-      redirect_to db_edit_work_path(@work), notice: t("resources.work.created")
+      redirect_to db_edit_work_path(@work), notice: t('resources.work.created')
     end
 
     def edit
@@ -53,7 +53,7 @@ module Db
 
       @work.save_and_create_activity!
 
-      redirect_to db_edit_work_path(@work), notice: t("resources.work.updated")
+      redirect_to db_edit_work_path(@work), notice: t('resources.work.updated')
     end
 
     def destroy
@@ -64,7 +64,7 @@ module Db
 
       redirect_back(
         fallback_location: db_work_list_path,
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-describe "GraphQL API Query" do
-  describe "viewer" do
+describe 'GraphQL API Query' do
+  describe 'viewer' do
     let(:user) { create(:user) }
     let(:result) do
       query_string = <<~GRAPHQL
@@ -14,11 +14,11 @@ describe "GraphQL API Query" do
       GRAPHQL
 
       res = Beta::AnikutoSchema.execute(query_string, context: { viewer: user })
-      pp(res) if res["errors"]
+      pp(res) if res['errors']
       res
     end
 
-    it "fetches user" do
+    it 'fetches user' do
       expected = {
         data: {
           viewer: {

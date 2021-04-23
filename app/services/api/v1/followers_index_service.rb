@@ -15,11 +15,13 @@ module Api
 
       def filter_user_id
         return @collection if @params.filter_user_id.blank?
+
         @collection.where(following_id: @params.filter_user_id)
       end
 
       def filter_username
         return @collection if @params.filter_username.blank?
+
         @collection.
           joins(:following).
           where(users: { username: @params.filter_username })

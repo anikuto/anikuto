@@ -30,7 +30,7 @@ module Db
 
       @form.save!
 
-      redirect_to db_cast_list_path(@work), notice: t("resources.cast.created")
+      redirect_to db_cast_list_path(@work), notice: t('resources.cast.created')
     end
 
     def edit
@@ -51,7 +51,7 @@ module Db
 
       @cast.save_and_create_activity!
 
-      redirect_to db_cast_list_path(@work), notice: t("resources.cast.updated")
+      redirect_to db_cast_list_path(@work), notice: t('resources.cast.updated')
     end
 
     def destroy
@@ -62,7 +62,7 @@ module Db
 
       redirect_back(
         fallback_location: db_cast_list_path(@cast.work),
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

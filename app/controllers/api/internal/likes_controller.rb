@@ -24,11 +24,11 @@ module Api
         recipient = params[:recipient_type].constantize.find(params[:recipient_id])
         current_user.like(recipient)
         ga_client.page_category = params[:page_category]
-        ga_client.events.create(:likes, :create, el: params[:recipient_type], ev: params[:recipient_id], ds: "internal_api")
+        ga_client.events.create(:likes, :create, el: params[:recipient_type], ev: params[:recipient_id], ds: 'internal_api')
 
-        if params[:recipient_type] == "EpisodeRecord"
+        if params[:recipient_type] == 'EpisodeRecord'
           EmailNotificationService.send_email(
-            "liked_episode_record",
+            'liked_episode_record',
             recipient.user,
             current_user.id,
             params[:recipient_id]

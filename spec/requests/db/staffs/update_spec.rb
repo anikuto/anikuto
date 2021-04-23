@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-describe "PATCH /db/staffs/:id", type: :request do
-  context "user does not sign in" do
+describe 'PATCH /db/staffs/:id', type: :request do
+  context 'user does not sign in' do
     let!(:person) { create(:person) }
     let!(:staff) { create(:staff) }
     let!(:old_staff) { staff.attributes }
@@ -11,18 +11,18 @@ describe "PATCH /db/staffs/:id", type: :request do
       }
     end
 
-    it "user can not access this page" do
+    it 'user can not access this page' do
       patch "/db/staffs/#{staff.id}", params: { staff: staff_params }
       staff.reload
 
       expect(response.status).to eq(302)
-      expect(flash[:alert]).to eq("ログインしてください")
+      expect(flash[:alert]).to eq('ログインしてください')
 
-      expect(staff.resource_id).to eq(old_staff["resource_id"])
+      expect(staff.resource_id).to eq(old_staff['resource_id'])
     end
   end
 
-  context "user who is not editor signs in" do
+  context 'user who is not editor signs in' do
     let!(:person) { create(:person) }
     let!(:user) { create(:registered_user) }
     let!(:staff) { create(:staff) }
@@ -37,18 +37,18 @@ describe "PATCH /db/staffs/:id", type: :request do
       login_as(user, scope: :user)
     end
 
-    it "user can not access" do
+    it 'user can not access' do
       patch "/db/staffs/#{staff.id}", params: { staff: staff_params }
       staff.reload
 
       expect(response.status).to eq(302)
-      expect(flash[:alert]).to eq("アクセスできません")
+      expect(flash[:alert]).to eq('アクセスできません')
 
-      expect(staff.resource_id).to eq(old_staff["resource_id"])
+      expect(staff.resource_id).to eq(old_staff['resource_id'])
     end
   end
 
-  context "user who is editor signs in" do
+  context 'user who is editor signs in' do
     let!(:person) { create(:person) }
     let!(:user) { create(:registered_user, :with_editor_role) }
     let!(:staff) { create(:staff) }
@@ -64,14 +64,14 @@ describe "PATCH /db/staffs/:id", type: :request do
       login_as(user, scope: :user)
     end
 
-    it "user can update staff" do
-      expect(staff.resource_id).to eq(old_staff["resource_id"])
+    it 'user can update staff' do
+      expect(staff.resource_id).to eq(old_staff['resource_id'])
 
       patch "/db/staffs/#{staff.id}", params: { staff: staff_params }
       staff.reload
 
       expect(response.status).to eq(302)
-      expect(flash[:notice]).to eq("更新しました")
+      expect(flash[:notice]).to eq('更新しました')
 
       expect(staff.resource_id).to eq(person.id)
     end

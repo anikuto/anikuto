@@ -50,8 +50,8 @@ class UserSlotsQuery
   def user_slots
     return slots.none if user_episodes.blank?
 
-    id_pair = channel_works.pluck(:channel_id, :work_id).map { |ary| "(#{ary[0]}, #{ary[1]})" }.join(",")
-    id_pair_sql = id_pair.blank? ? "NULL" : <<-SQL
+    id_pair = channel_works.pluck(:channel_id, :work_id).map { |ary| "(#{ary[0]}, #{ary[1]})" }.join(',')
+    id_pair_sql = id_pair.blank? ? 'NULL' : <<-SQL
       SELECT id FROM slots WHERE
         (channel_id, work_id) IN (VALUES #{id_pair})
     SQL

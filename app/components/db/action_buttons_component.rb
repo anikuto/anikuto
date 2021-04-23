@@ -19,15 +19,15 @@ module Db
     end
 
     def publishing_method
-      resource.published? ? "delete" : "post"
+      resource.published? ? 'delete' : 'post'
     end
 
     def publishing_btn_class
-      resource.published? ? "btn-warning" : "btn-success"
+      resource.published? ? 'btn-warning' : 'btn-success'
     end
 
     def publishing_text
-      resource.published? ? I18n.t("noun.unpublish") : I18n.t("noun.publish")
+      resource.published? ? I18n.t('noun.unpublish') : I18n.t('noun.publish')
     end
   end
 end

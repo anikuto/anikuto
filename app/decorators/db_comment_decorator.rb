@@ -3,9 +3,9 @@
 module DbCommentDecorator
   def detail_url
     case model.class.name
-    when "DbComment"
+    when 'DbComment'
       case resource_type
-      when "Work"
+      when 'Work'
         "/works/#{resource.id}/activities##{anchor}"
       end
     end

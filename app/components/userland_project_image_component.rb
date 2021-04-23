@@ -8,10 +8,10 @@ class UserlandProjectImageComponent < ApplicationComponent
 
   def call
     helpers.image_tag(dummy_src, {
-      alt: alt,
-      class: "img-fluid img-thumbnail js-lazy rounded",
-      "data-src": image_url_1x
-    })
+                        alt: alt,
+                        class: 'img-fluid img-thumbnail js-lazy rounded',
+                        "data-src": image_url_1x
+                      })
   end
 
   private

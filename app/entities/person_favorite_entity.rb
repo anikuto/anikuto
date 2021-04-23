@@ -7,11 +7,11 @@ class PersonFavoriteEntity < ApplicationEntity
   def self.from_node(person_favorite_node)
     attrs = {}
 
-    if person_node = person_favorite_node["person"]
+    if person_node = person_favorite_node['person']
       attrs[:person] = PersonEntity.from_node(person_node)
     end
 
-    if watched_anime_count = person_favorite_node["watchedAnimeCount"]
+    if watched_anime_count = person_favorite_node['watchedAnimeCount']
       attrs[:watched_anime_count] = watched_anime_count
     end
 

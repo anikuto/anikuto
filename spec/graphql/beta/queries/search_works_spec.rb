@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-describe "GraphQL API Query" do
-  describe "searchWorks" do
+describe 'GraphQL API Query' do
+  describe 'searchWorks' do
     let!(:work1) { create(:work, :with_current_season, watchers_count: 10) }
     let!(:work2) { create(:work, :with_next_season, watchers_count: 30) }
     let!(:work3) { create(:work, :with_prev_season, watchers_count: 20) }
 
-    context "when `anikutoIds` argument is specified" do
+    context 'when `anikutoIds` argument is specified' do
       let(:result) do
         query_string = <<~QUERY
           query {
@@ -21,22 +21,22 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
-      it "shows work title" do
-        expect(result.dig("data", "searchWorks", "edges")).to match_array([
+      it 'shows work title' do
+        expect(result.dig('data', 'searchWorks', 'edges')).to match_array([
           {
-            "node" => {
-              "title" => work1.title
+            'node' => {
+              'title' => work1.title
             }
           }
         ])
       end
     end
 
-    context "when `seasons` argument is specified" do
+    context 'when `seasons` argument is specified' do
       let(:result) do
         query_string = <<~QUERY
           query {
@@ -51,22 +51,22 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
-      it "shows work title" do
-        expect(result.dig("data", "searchWorks", "edges")).to match_array([
+      it 'shows work title' do
+        expect(result.dig('data', 'searchWorks', 'edges')).to match_array([
           {
-            "node" => {
-              "title" => work2.title
+            'node' => {
+              'title' => work2.title
             }
           }
         ])
       end
     end
 
-    context "when `titles` argument is specified" do
+    context 'when `titles` argument is specified' do
       let(:result) do
         query_string = <<~QUERY
           query {
@@ -81,22 +81,22 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
-      it "shows work title" do
-        expect(result.dig("data", "searchWorks", "edges")).to match_array([
+      it 'shows work title' do
+        expect(result.dig('data', 'searchWorks', 'edges')).to match_array([
           {
-            "node" => {
-              "title" => work3.title
+            'node' => {
+              'title' => work3.title
             }
           }
         ])
       end
     end
 
-    context "when `orderBy` argument is specified" do
+    context 'when `orderBy` argument is specified' do
       let(:result) do
         query_string = <<~QUERY
           query {
@@ -112,35 +112,35 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
-      it "shows ordered work titles" do
-        expect(result.dig("data", "searchWorks", "edges")).to match_array([
+      it 'shows ordered work titles' do
+        expect(result.dig('data', 'searchWorks', 'edges')).to match_array([
           {
-            "node" => {
-              "title" => work2.title,
-              "watchersCount" => 30
+            'node' => {
+              'title' => work2.title,
+              'watchersCount' => 30
             }
           },
           {
-            "node" => {
-              "title" => work3.title,
-              "watchersCount" => 20
+            'node' => {
+              'title' => work3.title,
+              'watchersCount' => 20
             }
           },
           {
-            "node" => {
-              "title" => work1.title,
-              "watchersCount" => 10
+            'node' => {
+              'title' => work1.title,
+              'watchersCount' => 10
             }
           }
         ])
       end
     end
 
-    context "when `casts` are fetched" do
+    context 'when `casts` are fetched' do
       let!(:cast1) { create(:cast, work: work1) }
       let!(:cast2) { create(:cast, work: work1) }
       let!(:cast3) { create(:cast, work: work2) }
@@ -171,25 +171,25 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
-      it "shows ordered casts" do
-        expect(result.dig("data", "searchWorks", "edges")).to match_array([
+      it 'shows ordered casts' do
+        expect(result.dig('data', 'searchWorks', 'edges')).to match_array([
           {
-            "node" => {
-              "title" => work2.title,
-              "watchersCount" => 30,
-              "casts" => {
-                "edges" => [
+            'node' => {
+              'title' => work2.title,
+              'watchersCount' => 30,
+              'casts' => {
+                'edges' => [
                   {
-                    "node" => {
-                      "character" => {
-                        "name" => cast3.character.name
+                    'node' => {
+                      'character' => {
+                        'name' => cast3.character.name
                       },
-                      "person" => {
-                        "name" => cast3.person.name
+                      'person' => {
+                        'name' => cast3.person.name
                       }
                     }
                   }
@@ -198,37 +198,37 @@ describe "GraphQL API Query" do
             }
           },
           {
-            "node" => {
-              "title" => work3.title,
-              "watchersCount" => 20,
-              "casts" => {
-                "edges" => []
+            'node' => {
+              'title' => work3.title,
+              'watchersCount' => 20,
+              'casts' => {
+                'edges' => []
               }
             }
           },
           {
-            "node" => {
-              "title" => work1.title,
-              "watchersCount" => 10,
-              "casts" => {
-                "edges" => [
+            'node' => {
+              'title' => work1.title,
+              'watchersCount' => 10,
+              'casts' => {
+                'edges' => [
                   {
-                    "node" => {
-                      "character" => {
-                        "name" => cast2.character.name
+                    'node' => {
+                      'character' => {
+                        'name' => cast2.character.name
                       },
-                      "person" => {
-                        "name" => cast2.person.name
+                      'person' => {
+                        'name' => cast2.person.name
                       }
                     }
                   },
                   {
-                    "node" => {
-                      "character" => {
-                        "name" => cast1.character.name
+                    'node' => {
+                      'character' => {
+                        'name' => cast1.character.name
                       },
-                      "person" => {
-                        "name" => cast1.person.name
+                      'person' => {
+                        'name' => cast1.person.name
                       }
                     }
                   }
@@ -240,7 +240,7 @@ describe "GraphQL API Query" do
       end
     end
 
-    context "when `staffs` are fetched" do
+    context 'when `staffs` are fetched' do
       let(:organization) { create(:organization) }
       let!(:staff1) { create(:staff, work: work1) }
       let!(:staff2) { create(:staff, work: work1, resource: organization) }
@@ -274,22 +274,22 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
-      it "shows ordered casts" do
-        expect(result.dig("data", "searchWorks", "edges")).to match_array([
+      it 'shows ordered casts' do
+        expect(result.dig('data', 'searchWorks', 'edges')).to match_array([
           {
-            "node" => {
-              "title" => work2.title,
-              "watchersCount" => 30,
-              "staffs" => {
-                "edges" => [
+            'node' => {
+              'title' => work2.title,
+              'watchersCount' => 30,
+              'staffs' => {
+                'edges' => [
                   {
-                    "node" => {
-                      "resource" => {
-                        "name" => staff3.resource.name
+                    'node' => {
+                      'resource' => {
+                        'name' => staff3.resource.name
                       }
                     }
                   }
@@ -298,31 +298,31 @@ describe "GraphQL API Query" do
             }
           },
           {
-            "node" => {
-              "title" => work3.title,
-              "watchersCount" => 20,
-              "staffs" => {
-                "edges" => []
+            'node' => {
+              'title' => work3.title,
+              'watchersCount' => 20,
+              'staffs' => {
+                'edges' => []
               }
             }
           },
           {
-            "node" => {
-              "title" => work1.title,
-              "watchersCount" => 10,
-              "staffs" => {
-                "edges" => [
+            'node' => {
+              'title' => work1.title,
+              'watchersCount' => 10,
+              'staffs' => {
+                'edges' => [
                   {
-                    "node" => {
-                      "resource" => {
-                        "name" => staff2.resource.name
+                    'node' => {
+                      'resource' => {
+                        'name' => staff2.resource.name
                       }
                     }
                   },
                   {
-                    "node" => {
-                      "resource" => {
-                        "name" => staff1.resource.name
+                    'node' => {
+                      'resource' => {
+                        'name' => staff1.resource.name
                       }
                     }
                   }
@@ -334,10 +334,10 @@ describe "GraphQL API Query" do
       end
     end
 
-    context "when `reviews` are fetched" do
+    context 'when `reviews` are fetched' do
       let(:user) { create(:registered_user) }
       let(:record) { create(:record, user: user, work: work1) }
-      let!(:work_record) { create(:work_record, user: user, work: work1, record: record, body: "Review~~~") }
+      let!(:work_record) { create(:work_record, user: user, work: work1, record: record, body: 'Review~~~') }
       let(:result) do
         query_string = <<~QUERY
           query {
@@ -354,17 +354,17 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
-      it "returns reviews" do
-        expect(result.dig("data", "searchWorks", "nodes")).to match_array([
+      it 'returns reviews' do
+        expect(result.dig('data', 'searchWorks', 'nodes')).to match_array([
           {
-            "reviews" => {
-              "nodes" => [
+            'reviews' => {
+              'nodes' => [
                 {
-                  "body" => "Review~~~"
+                  'body' => 'Review~~~'
                 }
               ]
             }

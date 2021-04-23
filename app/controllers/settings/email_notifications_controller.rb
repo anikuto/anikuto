@@ -12,7 +12,7 @@ module Settings
       @email_notification = current_user.email_notification
 
       if @email_notification.update(email_notification_params)
-        flash[:notice] = t("messages.settings.email_notifications.updated")
+        flash[:notice] = t('messages.settings.email_notifications.updated')
         redirect_to settings_email_notification_path
       else
         render :show
@@ -26,7 +26,7 @@ module Settings
       notification = EmailNotification.find_by!(unsubscription_key: params[:key])
 
       unless notification.has_attribute?(column)
-        raise ActionController::RoutingError, "Not Found"
+        raise ActionController::RoutingError, 'Not Found'
       end
 
       notification.update_column(column, false)

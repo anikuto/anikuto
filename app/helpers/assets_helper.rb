@@ -30,7 +30,7 @@ module AssetsHelper
 
   private
 
-  MANIFEST_PATH = 'public/packs/manifest.json'
+  MANIFEST_PATH = 'public/assets/manifest.json'
 
   def manifest
     @manifest ||= JSON.parse(File.read(MANIFEST_PATH))

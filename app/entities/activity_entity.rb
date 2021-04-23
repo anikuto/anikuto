@@ -14,21 +14,21 @@ class ActivityEntity < ApplicationEntity
   def self.from_node(activity_node, user_node: nil)
     attrs = {}
 
-    if database_id = activity_node["databaseId"]
+    if database_id = activity_node['databaseId']
       attrs[:database_id] = database_id
     end
 
-    if itemable_type = activity_node["itemableType"]
+    if itemable_type = activity_node['itemableType']
       attrs[:itemable_type] = itemable_type.downcase
     end
 
-    if itemable_node = activity_node["itemable"]
+    if itemable_node = activity_node['itemable']
       attrs[:itemable] = case itemable_type
-      when "EPISODE_RECORD"
+      when 'EPISODE_RECORD'
         EpisodeRecordEntity.from_node(itemable_node, user_node: user_node)
-      when "STATUS"
+      when 'STATUS'
         StatusEntity.from_node(itemable_node, user_node: user_node)
-      when "ANIME_RECORD"
+      when 'ANIME_RECORD'
         AnimeRecordEntity.from_node(itemable_node, user_node: user_node)
       end
     end

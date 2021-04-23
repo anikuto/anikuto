@@ -16,11 +16,13 @@ module Api
 
       def filter_user_id
         return @collection if @params.filter_user_id.blank?
+
         @collection.where(user_id: @params.filter_user_id)
       end
 
       def filter_username
         return @collection if @params.filter_username.blank?
+
         @collection.
           joins(:user).
           where(users: { username: @params.filter_username })
@@ -28,6 +30,7 @@ module Api
 
       def filter_actions
         return @collection if @params.filter_actions.blank?
+
         @collection.where(action: @params.latest_filter_actions)
       end
     end

@@ -14,15 +14,15 @@ class ProgramEntity < ApplicationEntity
   def self.from_node(program_node)
     attrs = {}
 
-    if vod_title_name = program_node["vodTitleName"]
+    if vod_title_name = program_node['vodTitleName']
       attrs[:vod_title_name] = vod_title_name
     end
 
-    if vod_title_url = program_node["vodTitleUrl"]
+    if vod_title_url = program_node['vodTitleUrl']
       attrs[:vod_title_url] = vod_title_url
     end
 
-    if channel_node = program_node["channel"]
+    if channel_node = program_node['channel']
       attrs[:channel] = ChannelEntity.from_node(channel_node)
     end
 

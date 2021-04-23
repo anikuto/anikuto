@@ -1,28 +1,28 @@
 # frozen_string_literal: true
 
-describe "POST /db/channel_groups", type: :request do
-  context "user does not sign in" do
+describe 'POST /db/channel_groups', type: :request do
+  context 'user does not sign in' do
     let!(:channel_group_params) do
       {
-        name: "ちゃんねるぐるーぷ"
+        name: 'ちゃんねるぐるーぷ'
       }
     end
 
-    it "user can not access this page" do
-      post "/db/channel_groups", params: { channel_group: channel_group_params }
+    it 'user can not access this page' do
+      post '/db/channel_groups', params: { channel_group: channel_group_params }
 
       expect(response.status).to eq(302)
-      expect(flash[:alert]).to eq("ログインしてください")
+      expect(flash[:alert]).to eq('ログインしてください')
 
       expect(ChannelGroup.all.size).to eq(0)
     end
   end
 
-  context "user who is not editor signs in" do
+  context 'user who is not editor signs in' do
     let!(:user) { create(:registered_user) }
     let!(:channel_group_params) do
       {
-        name: "ちゃんねるぐるーぷ"
+        name: 'ちゃんねるぐるーぷ'
       }
     end
 
@@ -30,21 +30,21 @@ describe "POST /db/channel_groups", type: :request do
       login_as(user, scope: :user)
     end
 
-    it "user can not access" do
-      post "/db/channel_groups", params: { channel_group: channel_group_params }
+    it 'user can not access' do
+      post '/db/channel_groups', params: { channel_group: channel_group_params }
 
       expect(response.status).to eq(302)
-      expect(flash[:alert]).to eq("アクセスできません")
+      expect(flash[:alert]).to eq('アクセスできません')
 
       expect(ChannelGroup.all.size).to eq(0)
     end
   end
 
-  context "user who is editor signs in" do
+  context 'user who is editor signs in' do
     let!(:user) { create(:registered_user, :with_editor_role) }
     let!(:channel_group_params) do
       {
-        name: "ちゃんねるぐるーぷ"
+        name: 'ちゃんねるぐるーぷ'
       }
     end
 
@@ -52,21 +52,21 @@ describe "POST /db/channel_groups", type: :request do
       login_as(user, scope: :user)
     end
 
-    it "user can not access" do
-      post "/db/channel_groups", params: { channel_group: channel_group_params }
+    it 'user can not access' do
+      post '/db/channel_groups', params: { channel_group: channel_group_params }
 
       expect(response.status).to eq(302)
-      expect(flash[:alert]).to eq("アクセスできません")
+      expect(flash[:alert]).to eq('アクセスできません')
 
       expect(ChannelGroup.all.size).to eq(0)
     end
   end
 
-  context "user who is admin signs in" do
+  context 'user who is admin signs in' do
     let!(:user) { create(:registered_user, :with_admin_role) }
     let!(:channel_group_params) do
       {
-        name: "ちゃんねるぐるーぷ"
+        name: 'ちゃんねるぐるーぷ'
       }
     end
 
@@ -74,18 +74,18 @@ describe "POST /db/channel_groups", type: :request do
       login_as(user, scope: :user)
     end
 
-    it "user can create channel_group" do
+    it 'user can create channel_group' do
       expect(ChannelGroup.all.size).to eq(0)
 
-      post "/db/channel_groups", params: { channel_group: channel_group_params }
+      post '/db/channel_groups', params: { channel_group: channel_group_params }
 
       expect(response.status).to eq(302)
-      expect(flash[:notice]).to eq("登録しました")
+      expect(flash[:notice]).to eq('登録しました')
 
       expect(ChannelGroup.all.size).to eq(1)
       channel_group = ChannelGroup.first
 
-      expect(channel_group.name).to eq("ちゃんねるぐるーぷ")
+      expect(channel_group.name).to eq('ちゃんねるぐるーぷ')
     end
   end
 end

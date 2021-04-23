@@ -13,6 +13,7 @@ module EpisodeDecorator
   def local_title(fallback: true)
     return title if I18n.locale == :ja
     return title_en if title_en.present?
+
     title if fallback
   end
 
@@ -25,9 +26,9 @@ module EpisodeDecorator
           if episode.present?
             title = episode.decorate.title_with_number
             path = work_episode_path(episode.work, episode)
-            link_to(title, path, target: "_blank")
+            link_to(title, path, target: '_blank')
           else
-            ""
+            ''
           end
         end.to_s
       else

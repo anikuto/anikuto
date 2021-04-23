@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-describe "GraphQL API Mutation" do
-  describe "createReview" do
+describe 'GraphQL API Mutation' do
+  describe 'createReview' do
     let!(:user) { create(:user, :with_setting) }
     let!(:work) { create(:work) }
     let!(:token) { create(:oauth_access_token) }
     let!(:context) { { viewer: user, doorkeeper_token: token } }
     let!(:id) { GraphQL::Schema::UniqueWithinType.encode(work.class.name, work.id) }
-    let!(:body) { "とてもよかった！" }
+    let!(:body) { 'とてもよかった！' }
     let!(:result) do
       query_string = <<~GRAPHQL
         mutation {
@@ -37,7 +37,7 @@ describe "GraphQL API Mutation" do
       GRAPHQL
 
       res = Beta::AnikutoSchema.execute(query_string, context: context)
-      pp(res) if res["errors"]
+      pp(res) if res['errors']
       res
     end
 
@@ -45,15 +45,15 @@ describe "GraphQL API Mutation" do
       result
     end
 
-    it "create resource" do
+    it 'create resource' do
       review = WorkRecord.last
-      expect(result.dig("data", "createReview", "review", "anikutoId")).to eq(review.id)
-      expect(result.dig("data", "createReview", "review", "body")).to eq(review.body)
-      expect(result.dig("data", "createReview", "review", "ratingAnimationState")).to eq("GOOD")
-      expect(result.dig("data", "createReview", "review", "ratingCharacterState")).to eq("BAD")
-      expect(result.dig("data", "createReview", "review", "ratingMusicState")).to eq("GREAT")
-      expect(result.dig("data", "createReview", "review", "ratingOverallState")).to eq("AVERAGE")
-      expect(result.dig("data", "createReview", "review", "ratingAnimationState")).to eq("GOOD")
+      expect(result.dig('data', 'createReview', 'review', 'anikutoId')).to eq(review.id)
+      expect(result.dig('data', 'createReview', 'review', 'body')).to eq(review.body)
+      expect(result.dig('data', 'createReview', 'review', 'ratingAnimationState')).to eq('GOOD')
+      expect(result.dig('data', 'createReview', 'review', 'ratingCharacterState')).to eq('BAD')
+      expect(result.dig('data', 'createReview', 'review', 'ratingMusicState')).to eq('GREAT')
+      expect(result.dig('data', 'createReview', 'review', 'ratingOverallState')).to eq('AVERAGE')
+      expect(result.dig('data', 'createReview', 'review', 'ratingAnimationState')).to eq('GOOD')
     end
   end
 end

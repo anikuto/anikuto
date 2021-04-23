@@ -7,14 +7,14 @@ module ResourceImageDecoratorCommon
     def asin_or_copyright_text
       if copyright.present?
         messages = []
-        messages << icon("copyright", "far", class: "mr-1")
+        messages << icon('copyright', 'far', class: 'mr-1')
         messages << Rack::Utils.escape_html(copyright)
-        content_tag(:span, messages.join.html_safe, class: "text-muted")
+        content_tag(:span, messages.join.html_safe, class: 'text-muted')
       elsif asin.present?
-        link_to amazon_url, target: "_blank" do
+        link_to amazon_url, target: '_blank' do
           messages = []
-          messages << icon("amazon", "fab", class: "mr-1")
-          messages << I18n.t("messages._common.view_amazon_product")
+          messages << icon('amazon', 'fab', class: 'mr-1')
+          messages << I18n.t('messages._common.view_amazon_product')
           messages.join.html_safe
         end
       end
@@ -27,7 +27,7 @@ module ResourceImageDecoratorCommon
     private
 
     def amazon_url
-      amazon_url_key = I18n.locale == :ja ? "AMAZON_JA_URL" : "AMAZON_EN_URL"
+      amazon_url_key = I18n.locale == :ja ? 'AMAZON_JA_URL' : 'AMAZON_EN_URL'
       "#{ENV.fetch(amazon_url_key)}/dp/#{asin}"
     end
   end

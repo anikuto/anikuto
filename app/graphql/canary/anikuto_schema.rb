@@ -1,0 +1,60 @@
+# frozen_string_literal: true
+
+module Canary
+  class AnikutoSchema < GraphQL::Schema
+    query Canary::Types::Objects::Query
+    mutation Canary::Types::Objects::Mutation
+
+    use GraphQL::Pagination::Connections
+    use GraphQL::Batch
+
+    default_max_page_size 50
+
+    def self.id_from_object(object, type_definition, query_ctx = nil)
+      GraphQL::Schema::UniqueWithinType.encode(type_definition.name, object.id)
+    end
+
+    def self.object_from_id(id, query_ctx = nil)
+      type_name, item_id = GraphQL::Schema::UniqueWithinType.decode(id)
+
+      return nil if type_name.blank? || item_id.blank?
+
+      Object.const_get(type_name).find(item_id)
+    end
+
+    def self.resolve_type(_type, obj, _ctx)
+      case obj
+      when Activity
+        Canary::Types::Objects::ActivityType
+      when ActivityGroup
+        Canary::Types::Objects::ActivityGroupType
+      when EpisodeRecord
+        Canary::Types::Objects::EpisodeRecordType
+      when Episode
+        Canary::Types::Objects::EpisodeType
+      when MultipleEpisodeRecord
+        Canary::Types::Objects::MultipleEpisodeRecordType
+      when Organization
+        Canary::Types::Objects::OrganizationType
+      when Person
+        Canary::Types::Objects::PersonType
+      when Slot
+        Canary::Types::Objects::SlotType
+      when Program
+        Canary::Types::Objects::ProgramType
+      when Status
+        Canary::Types::Objects::StatusType
+      when User
+        Canary::Types::Objects::UserType
+      when Work
+        Canary::Types::Objects::AnimeType
+      when WorkImage
+        Canary::Types::Objects::AnimeImageType
+      when WorkRecord
+        Canary::Types::Objects::AnimeRecordType
+      else
+        raise "Unexpected object: #{obj}"
+      end
+    end
+  end
+end

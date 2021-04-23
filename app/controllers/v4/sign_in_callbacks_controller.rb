@@ -2,7 +2,7 @@
 
 module V4
   class SignInCallbacksController < V4::ApplicationController
-    layout "simple"
+    layout 'simple'
 
     before_action :redirect_if_signed_in
 
@@ -16,7 +16,7 @@ module V4
       confirmation = EmailConfirmation.find_by(event: :sign_in, token: token)
 
       if !confirmation || confirmation.expired?
-        @message = t("messages.sign_in_callback.show.expired_html").html_safe
+        @message = t('messages.sign_in_callback.show.expired_html').html_safe
         return
       end
 
@@ -32,7 +32,7 @@ module V4
         sign_in user
       end
 
-      flash[:notice] = t("messages.sign_in_callback.show.signed_in")
+      flash[:notice] = t('messages.sign_in_callback.show.signed_in')
       redirect_to(confirmation.back.presence || root_path)
     end
   end

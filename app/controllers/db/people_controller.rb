@@ -22,7 +22,7 @@ module Db
 
       @form.save!
 
-      redirect_to db_person_list_path, notice: t("resources.person.created")
+      redirect_to db_person_list_path, notice: t('resources.person.created')
     end
 
     def edit
@@ -41,7 +41,7 @@ module Db
 
       @person.save_and_create_activity!
 
-      redirect_to db_edit_person_path(@person), notice: t("resources.person.updated")
+      redirect_to db_edit_person_path(@person), notice: t('resources.person.updated')
     end
 
     def destroy
@@ -52,7 +52,7 @@ module Db
 
       redirect_back(
         fallback_location: db_person_list_path,
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

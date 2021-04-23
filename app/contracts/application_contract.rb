@@ -8,7 +8,7 @@ class ApplicationContract < Dry::Validation::Contract
   end
 
   TypeContainer = Dry::Schema::TypeContainer.new
-  TypeContainer.register("params.stripped_string", Types::StrippedString)
+  TypeContainer.register('params.stripped_string', Types::StrippedString)
 
   config.types = TypeContainer
   config.messages.default_locale = I18n.locale
@@ -26,7 +26,7 @@ class ApplicationContract < Dry::Validation::Contract
   register_macro(:email_format) do
     # https://github.com/K-and-R/email_validator/blob/756f4226d254713333f83f534b88d174a106eb37/lib/email_validator.rb#L13
     # https://medium.com/hackernoon/the-100-correct-way-to-validate-email-addresses-7c4818f24643
-    unless %r{[^\s]@[^\s]}.match?(value)
+    unless /[^\s]@[^\s]/.match?(value)
       key.failure(:email_format)
     end
   end

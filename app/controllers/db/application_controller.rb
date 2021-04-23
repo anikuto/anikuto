@@ -9,7 +9,7 @@ module Db
     include V4::Loggable
     include V4::Localizable
 
-    layout "db"
+    layout 'db'
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -26,7 +26,7 @@ module Db
     end
 
     def user_not_authorized
-      flash[:alert] = t "messages._common.you_can_not_access_there"
+      flash[:alert] = t 'messages._common.you_can_not_access_there'
       redirect_to(request.referrer || db_root_path)
     end
   end

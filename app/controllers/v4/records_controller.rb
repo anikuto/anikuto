@@ -26,8 +26,8 @@ module V4
 
     def user_cache_key(user)
       [
-        "record-list",
-        "user",
+        'record-list',
+        'user',
         user.id,
         user.updated_at.rfc3339
       ].freeze

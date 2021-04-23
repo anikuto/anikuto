@@ -46,7 +46,8 @@ module Db
       fetched_rows.each do |row_data|
         row_data.slice(:character, :person).each do |_, data|
           next if data[:id].present?
-          i18n_path = "activemodel.errors.forms.db/cast_rows_form.invalid"
+
+          i18n_path = 'activemodel.errors.forms.db/cast_rows_form.invalid'
           errors.add(:rows, I18n.t(i18n_path, value: data[:value]))
         end
       end

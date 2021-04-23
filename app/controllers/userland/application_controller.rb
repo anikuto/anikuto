@@ -15,7 +15,7 @@ module Userland
     include PageCategorizable
     include V4::UserDataFetchable
 
-    layout "application"
+    layout 'application'
 
     helper_method :gon, :locale_ja?, :locale_en?, :local_url, :page_category
 

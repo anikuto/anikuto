@@ -17,19 +17,19 @@ class EpisodeEntity < ApplicationEntity
   def self.from_node(episode_node)
     attrs = {}
 
-    if database_id = episode_node["databaseId"]
+    if database_id = episode_node['databaseId']
       attrs[:database_id] = database_id
     end
 
-    if number_text = episode_node["numberText"]
+    if number_text = episode_node['numberText']
       attrs[:number_text] = number_text
     end
 
-    if title = episode_node["title"]
+    if title = episode_node['title']
       attrs[:title] = title
     end
 
-    if title_en = episode_node["titleEn"]
+    if title_en = episode_node['titleEn']
       attrs[:title_en] = title_en
     end
 

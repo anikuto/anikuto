@@ -17,8 +17,8 @@ class UserSocialFriendsQuery
 
   def users_via(provider_name)
     uids = case provider_name.to_s
-    when "twitter" then TwitterService.new(@user).uids
-    when "facebook" then FacebookService.new(@user).uids
+    when 'twitter' then TwitterService.new(@user).uids
+    when 'facebook' then FacebookService.new(@user).uids
     end
 
     User.only_kept.joins(:providers).where(providers: { name: provider_name, uid: uids })
@@ -31,8 +31,8 @@ class UserSocialFriendsQuery
     facebook_uids = FacebookService.new(@user).uids
 
     t = Provider.arel_table
-    twitter_conds = t[:name].eq("twitter").and(t[:uid].in(twitter_uids))
-    facebook_conds = t[:name].eq("facebook").and(t[:uid].in(facebook_uids))
+    twitter_conds = t[:name].eq('twitter').and(t[:uid].in(twitter_uids))
+    facebook_conds = t[:name].eq('facebook').and(t[:uid].in(facebook_uids))
     User.only_kept.joins(:providers).where(twitter_conds.or(facebook_conds))
   end
 end

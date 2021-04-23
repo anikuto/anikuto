@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-describe "GraphQL API Query" do
-  describe "user" do
+describe 'GraphQL API Query' do
+  describe 'user' do
     let!(:user) { create(:user) }
 
-    context "when `username` argument is specified" do
+    context 'when `username` argument is specified' do
       let(:result) do
         query_string = <<~QUERY
           query {
@@ -15,19 +15,19 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
       it "shows user's username" do
-        expect(result.dig("data", "user")).to eq(
-          "username" => user.username
+        expect(result.dig('data', 'user')).to eq(
+          'username' => user.username
         )
       end
     end
 
-    context "`activities` field" do
-      context "when `orderBy` argument is specified" do
+    context '`activities` field' do
+      context 'when `orderBy` argument is specified' do
         let!(:activity1) { create(:create_episode_record_activity, user: user) }
         let!(:activity2) { create(:create_episode_record_activity, user: user) }
         let!(:activity3) { create(:create_episode_record_activity, user: user) }
@@ -50,34 +50,34 @@ describe "GraphQL API Query" do
           QUERY
 
           res = Beta::AnikutoSchema.execute(query_string)
-          pp(res) if res["errors"]
+          pp(res) if res['errors']
           res
         end
 
         it "shows ordered user's activities" do
-          expect(result.dig("data", "user")).to eq(
-            "username" => user.username,
-            "activities" => {
-              "edges" => [
+          expect(result.dig('data', 'user')).to eq(
+            'username' => user.username,
+            'activities' => {
+              'edges' => [
                 {
-                  "anikutoId" => activity3.id,
-                  "action" => "CREATE",
-                  "node" => {
-                    "__typename" => "Record"
+                  'anikutoId' => activity3.id,
+                  'action' => 'CREATE',
+                  'node' => {
+                    '__typename' => 'Record'
                   }
                 },
                 {
-                  "anikutoId" => activity2.id,
-                  "action" => "CREATE",
-                  "node" => {
-                    "__typename" => "Record"
+                  'anikutoId' => activity2.id,
+                  'action' => 'CREATE',
+                  'node' => {
+                    '__typename' => 'Record'
                   }
                 },
                 {
-                  "anikutoId" => activity1.id,
-                  "action" => "CREATE",
-                  "node" => {
-                    "__typename" => "Record"
+                  'anikutoId' => activity1.id,
+                  'action' => 'CREATE',
+                  'node' => {
+                    '__typename' => 'Record'
                   }
                 }
               ]
@@ -87,8 +87,8 @@ describe "GraphQL API Query" do
       end
     end
 
-    context "`works` field" do
-      context "when `state` argument is specified" do
+    context '`works` field' do
+      context 'when `state` argument is specified' do
         let!(:status1) { create(:status, user: user, kind: :watching) }
         let!(:status2) { create(:status, user: user, kind: :watched) }
         let!(:work1) { status1.work }
@@ -112,18 +112,18 @@ describe "GraphQL API Query" do
           QUERY
 
           res = Beta::AnikutoSchema.execute(query_string)
-          pp(res) if res["errors"]
+          pp(res) if res['errors']
           res
         end
 
         it "shows user's activities" do
-          expect(result.dig("data", "user")).to eq(
-            "username" => user.username,
-            "works" => {
-              "edges" => [
+          expect(result.dig('data', 'user')).to eq(
+            'username' => user.username,
+            'works' => {
+              'edges' => [
                 {
-                  "node" => {
-                    "title" => status1.work.title
+                  'node' => {
+                    'title' => status1.work.title
                   }
                 }
               ]
@@ -133,7 +133,7 @@ describe "GraphQL API Query" do
       end
     end
 
-    context "`avatar_url` field" do
+    context '`avatar_url` field' do
       let(:result) do
         query_string = <<~QUERY
           query {
@@ -145,14 +145,14 @@ describe "GraphQL API Query" do
         QUERY
 
         res = Beta::AnikutoSchema.execute(query_string)
-        pp(res) if res["errors"]
+        pp(res) if res['errors']
         res
       end
 
       it "shows user's avatar image URL" do
-        expect(result.dig("data", "user")).to eq(
-          "username" => user.username,
-          "avatarUrl" => "#{ENV.fetch('ANIKUTO_API_ASSETS_URL')}/no-image.jpg"
+        expect(result.dig('data', 'user')).to eq(
+          'username' => user.username,
+          'avatarUrl' => "#{ENV.fetch('ANIKUTO_API_ASSETS_URL')}/no-image.jpg"
         )
       end
     end

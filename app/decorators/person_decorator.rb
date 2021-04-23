@@ -14,9 +14,9 @@ module PersonDecorator
 
   def grid_description(resource)
     case resource.class.name
-    when "Cast"
+    when 'Cast'
       resource.character.decorate.name_link
-    when "Staff"
+    when 'Staff'
       resource.decorate.role_name
     end
   end
@@ -32,23 +32,23 @@ module PersonDecorator
         self.class.gender.find_value(gender).text if gender.present?
       when :url
         url = send(:url)
-        link_to(url, url, target: "_blank") if url.present?
+        link_to(url, url, target: '_blank') if url.present?
       when :media
         Work.media.find_value(send(:media)).text
       when :wikipedia_url
         wikipedia_url = send(field)
         if wikipedia_url.present?
-          link_to(URI.decode(wikipedia_url), wikipedia_url, target: "_blank")
+          link_to(URI.decode(wikipedia_url), wikipedia_url, target: '_blank')
         end
       when :twitter_username
         username = send(:twitter_username)
         if username.present?
           url = "https://twitter.com/#{username}"
-          link_to("@#{username}", url, target: "_blank")
+          link_to("@#{username}", url, target: '_blank')
         end
       when :birthday
         birthday = send(:birthday)
-        birthday.strftime("%Y年%m月%d日") if birthday.present?
+        birthday.strftime('%Y年%m月%d日') if birthday.present?
       when :blood_type
         blood_type = send(:blood_type)
         self.class.blood_type.find_value(blood_type).text if blood_type.present?

@@ -27,7 +27,7 @@ module Db
 
       @form.save!
 
-      redirect_to db_character_list_path, notice: t("resources.character.created")
+      redirect_to db_character_list_path, notice: t('resources.character.created')
     end
 
     def edit
@@ -46,7 +46,7 @@ module Db
 
       @character.save_and_create_activity!
 
-      redirect_to db_edit_character_path(@character), notice: t("resources.character.updated")
+      redirect_to db_edit_character_path(@character), notice: t('resources.character.updated')
     end
 
     def destroy
@@ -57,7 +57,7 @@ module Db
 
       redirect_back(
         fallback_location: db_character_list_path,
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

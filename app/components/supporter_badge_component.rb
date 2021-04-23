@@ -8,8 +8,8 @@ class SupporterBadgeComponent < ApplicationComponent
   def call
     return unless user_entity.display_supporter_badge
 
-    content_tag :div, class: "badge u-badge-supporter" do
-      I18n.t("noun.supporter")
+    content_tag :div, class: 'badge u-badge-supporter' do
+      I18n.t('noun.supporter')
     end
   end
 

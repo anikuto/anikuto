@@ -20,9 +20,9 @@ module Api
 
       def not_found
         error = {
-          type: "unknown_route",
-          message: "リクエストに失敗しました",
-          developer_message: "404 Not Found"
+          type: 'unknown_route',
+          message: 'リクエストに失敗しました',
+          developer_message: '404 Not Found'
         }
         render json: { errors: [error] }, status: 404
       end
@@ -31,12 +31,13 @@ module Api
 
       def current_user
         return nil if doorkeeper_token.blank?
+
         @current_user ||= User.find(doorkeeper_token.resource_owner_id)
       end
 
       def prepare_params!
         class_name = self.class.name
-        class_name = class_name.sub("Controller", "#{params[:action].classify}Params")
+        class_name = class_name.sub('Controller', "#{params[:action].classify}Params")
         @params = Object.const_get(class_name).new(params)
         return response_params_error unless @params.valid?
       end
@@ -44,8 +45,8 @@ module Api
       def response_params_error
         errors = @params.errors.full_messages.map do |message|
           {
-            type: "invalid_params",
-            message: "リクエストに失敗しました",
+            type: 'invalid_params',
+            message: 'リクエストに失敗しました',
             developer_message: message
           }
         end

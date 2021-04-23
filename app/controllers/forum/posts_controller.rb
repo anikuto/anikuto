@@ -23,7 +23,7 @@ module Forum
         @post.notify_discord
       end
 
-      Flash.store_data(cookies[:ann_client_uuid], notice: t("messages.forum.posts.created"))
+      Flash.store_data(cookies[:ann_client_uuid], notice: t('messages.forum.posts.created'))
       redirect_to forum_post_path(@post)
     end
 
@@ -46,7 +46,7 @@ module Forum
       @post.detect_locale!(:body)
 
       if @post.save
-        Flash.store_data(cookies[:ann_client_uuid], notice: t("messages.forum.posts.updated"))
+        Flash.store_data(cookies[:ann_client_uuid], notice: t('messages.forum.posts.updated'))
         redirect_to forum_post_path(@post)
       else
         render :edit

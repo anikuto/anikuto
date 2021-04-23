@@ -3,15 +3,15 @@
 class UpdateStatusRepository < ApplicationRepository
   def execute(anime:, kind:)
     result = mutate(variables: {
-      animeId: Canary::AnikutoSchema.id_from_object(anime, Work),
-      kind: Status.kind_v2_to_v3(kind)&.upcase&.to_s
-    })
+                      animeId: Canary::AnikutoSchema.id_from_object(anime, Work),
+                      kind: Status.kind_v2_to_v3(kind)&.upcase&.to_s
+                    })
 
-    if result.to_h["errors"]
-      return [nil, MutationError.new(message: result.to_h["errors"][0]["message"])]
+    if result.to_h['errors']
+      return [nil, MutationError.new(message: result.to_h['errors'][0]['message'])]
     end
 
-    anime_node = result.dig("data", "updateStatus", "anime")
+    anime_node = result.dig('data', 'updateStatus', 'anime')
 
     [AnimeEntity.from_node(anime_node), nil]
   end

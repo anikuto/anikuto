@@ -26,9 +26,9 @@ class SearchEpisodesQuery
       direction = @args[:order_by][:direction]
 
       @collection = case @args[:order_by][:field]
-      when "CREATED_AT"
+      when 'CREATED_AT'
         @collection.order(created_at: direction)
-      when "SORT_NUMBER"
+      when 'SORT_NUMBER'
         @collection.order(sort_number: direction)
       end
     end
@@ -41,6 +41,7 @@ class SearchEpisodesQuery
       anikuto_ids
     ).each do |arg_name|
       next if @args[arg_name].nil?
+
       @collection = send(arg_name)
     end
   end

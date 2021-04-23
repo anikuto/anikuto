@@ -43,15 +43,15 @@ class EpisodeRecordsListService
     return all_comment_episode_records if @user.blank?
 
     case @user.setting.display_option_record_list
-    when "all_comments" then all_comment_episode_records
-    when "friend_comments" then friend_comment_episode_records
-    when "my_episode_records" then my_episode_records
+    when 'all_comments' then all_comment_episode_records
+    when 'friend_comments' then friend_comment_episode_records
+    when 'my_episode_records' then my_episode_records
     end
   end
 
   def all_episode_records
     UserEpisodeRecordsQuery.new.call(
-      episode_records:@episode.episode_records,
+      episode_records: @episode.episode_records,
       user: @user
     )
   end
@@ -62,15 +62,15 @@ class EpisodeRecordsListService
     return results if @user.blank?
 
     case @user.setting.records_sort_type
-    when "likes_count_desc"
+    when 'likes_count_desc'
       results.order(likes_count: :desc).order(created_at: :desc)
-    when "rating_state_desc"
+    when 'rating_state_desc'
       results.rating_state_order(:desc).order(created_at: :desc)
-    when "rating_state_asc"
+    when 'rating_state_asc'
       results.rating_state_order(:asc).order(created_at: :desc)
-    when "created_at_desc"
+    when 'created_at_desc'
       results.order(created_at: :desc)
-    when "created_at_asc"
+    when 'created_at_asc'
       results.order(created_at: :asc)
     end
   end

@@ -36,8 +36,8 @@ module Db
 
         begin
           Time.parse(started_at)
-        rescue
-          i18n_path = "activemodel.errors.forms.db/slot_rows_form.invalid_start_time"
+        rescue StandardError
+          i18n_path = 'activemodel.errors.forms.db/slot_rows_form.invalid_start_time'
           errors.add(:rows, I18n.t(i18n_path))
         end
       end
@@ -51,9 +51,9 @@ module Db
         {
           channel: { id: channel&.id, value: row_columns[0] },
           started_at: { value: row_columns[1] },
-          rebroadcast: { value: row_columns[2] == "1" },
-          vod_title_code: { value: row_columns[3].presence || "" },
-          vod_title_name: { value: row_columns[4].presence || "" }
+          rebroadcast: { value: row_columns[2] == '1' },
+          vod_title_code: { value: row_columns[3].presence || '' },
+          vod_title_name: { value: row_columns[4].presence || '' }
         }
       end
     end

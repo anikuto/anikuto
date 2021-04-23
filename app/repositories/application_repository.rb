@@ -18,15 +18,17 @@ class ApplicationRepository
   attr_reader :graphql_client
 
   def file_name
-    @file_name ||= "#{self.class.name.split('::').map { |str| str.camelize(:lower) }.join('/').delete_suffix('Repository')}.graphql"
+    @file_name ||= "#{self.class.name.split('::').map do |str|
+                        str.camelize(:lower)
+                      end.join('/').delete_suffix('Repository')}.graphql"
   end
 
   def query_definition
-    @query_definition ||= File.read(Rails.root.join("app", "lib", "anikuto", "graphql", "queries", file_name))
+    @query_definition ||= File.read(Rails.root.join('app', 'lib', 'anikuto', 'graphql', 'queries', file_name))
   end
 
   def mutation_definition
-    @mutation_definition ||= File.read(Rails.root.join("app", "lib", "anikuto", "graphql", "mutations", file_name))
+    @mutation_definition ||= File.read(Rails.root.join('app', 'lib', 'anikuto', 'graphql', 'mutations', file_name))
   end
 
   def camelized_variables(variables)

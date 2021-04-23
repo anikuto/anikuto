@@ -10,15 +10,15 @@ services:
       - .:/workspace
       - node_modules_vol:/anikuto/node_modules
     ports:
-      - 8080:8080
-  postgresql:
-    image: postgres:12.4-alpine
-    ports:
-      - 5432:5432
-    volumes:
-      - ./volumes/postgresql:/var/lib/postgresql/data
-    environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
+      - 3035:3035
+#   postgresql:
+#     image: postgres:12.4-alpine
+#     ports:
+#       - 5432:5432
+#     volumes:
+#       - ./volumes/postgresql:/var/lib/postgresql/data
+#     environment:
+#       POSTGRES_HOST_AUTH_METHOD: trust
   redis:
     image: redis:5.0.5-alpine
     ports:

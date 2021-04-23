@@ -26,7 +26,7 @@ module Db
 
       @form.save!
 
-      redirect_to db_series_work_list_path(@series), notice: t("messages._common.created")
+      redirect_to db_series_work_list_path(@series), notice: t('messages._common.created')
     end
 
     def edit
@@ -50,7 +50,7 @@ module Db
 
       @series_work.save_and_create_activity!
 
-      redirect_to db_series_work_list_path(@series), notice: t("messages._common.updated")
+      redirect_to db_series_work_list_path(@series), notice: t('messages._common.updated')
     end
 
     def destroy
@@ -61,7 +61,7 @@ module Db
 
       redirect_back(
         fallback_location: db_series_work_list_path(@series_work.series),
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

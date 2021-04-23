@@ -18,7 +18,7 @@ To run Anikuto on a local machine, you need to have the following dependencies i
 ```
 $ sudo sh -c "echo '127.0.0.1  anikuto.test' >> /etc/hosts"
 $ sudo sh -c "echo '127.0.0.1  anikuto-jp.test' >> /etc/hosts"
-$ git clone https://glimmerhq.com/anikuto/anikuto.git
+$ git clone https://github.com/anikuto/anikuto.git
 $ cd anikuto
 $ bundle install
 $ touch .env.development.local

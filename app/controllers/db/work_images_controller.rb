@@ -19,7 +19,7 @@ module Db
 
       @image.save
 
-      redirect_to db_work_image_detail_path(@work), notice: t("messages.work_images.saved")
+      redirect_to db_work_image_detail_path(@work), notice: t('messages.work_images.saved')
     end
 
     def update
@@ -34,7 +34,7 @@ module Db
 
       @image.save
 
-      redirect_to db_work_image_detail_path(@work), notice: t("messages.work_images.saved")
+      redirect_to db_work_image_detail_path(@work), notice: t('messages.work_images.saved')
     end
 
     private

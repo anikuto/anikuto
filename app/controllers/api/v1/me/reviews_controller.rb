@@ -46,8 +46,8 @@ module Api
           @work_record.oauth_application = doorkeeper_token.application
           @work_record.detect_locale!(:body)
           current_user.setting.attributes = {
-            share_review_to_twitter: @params.share_twitter == "true",
-            share_review_to_facebook: @params.share_facebook == "true"
+            share_review_to_twitter: @params.share_twitter == 'true',
+            share_review_to_facebook: @params.share_facebook == 'true'
           }
 
           if @work_record.valid?
@@ -56,7 +56,7 @@ module Api
               current_user.setting.save!
             end
 
-            if @params.share_twitter == "true"
+            if @params.share_twitter == 'true'
               current_user.share_work_record_to_twitter(@work_record)
             end
           else
@@ -75,7 +75,7 @@ module Api
         def render_validation_errors(review)
           errors = review.errors.full_messages.map do |message|
             {
-              type: "invalid_params",
+              type: 'invalid_params',
               message: message
             }
           end
@@ -88,7 +88,7 @@ module Api
             json: {
               errors: [
                 {
-                  type: "invalid_params",
+                  type: 'invalid_params',
                   message: message
                 }
               ]

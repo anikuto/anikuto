@@ -7,8 +7,8 @@ FactoryBot.define do
     sequence(:name) { |n| "山田#{n}郎" }
     sequence(:name_en) { |n| "Yamada, #{n}rou" }
     role { :original_creator }
-    role_other { "role_other_data" }
-    role_other_en { "role_other_en_data" }
+    role_other { 'role_other_data' }
+    role_other_en { 'role_other_en_data' }
 
     trait :published do
       unpublished_at { nil }

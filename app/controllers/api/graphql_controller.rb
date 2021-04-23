@@ -40,7 +40,7 @@ module Api
 
     def bad_credentials
       json = {
-        "message": "Bad credentials"
+        message: 'Bad credentials'
       }
       render json: json, status: 401
     end
@@ -48,7 +48,7 @@ module Api
     def doorkeeper_unauthorized_render_options(_error)
       {
         json: {
-          message: "Not authorized"
+          message: 'Not authorized'
         }
       }
     end

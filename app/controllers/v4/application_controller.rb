@@ -9,7 +9,7 @@ module V4
     include V4::GraphqlRunnable
     include V4::UserDataFetchable
 
-    layout "default"
+    layout 'default'
 
     helper_method :client_uuid, :local_url_with_path, :locale_en?, :locale_ja?, :local_url, :page_category
 
@@ -21,7 +21,7 @@ module V4
 
     def redirect_if_signed_in
       if user_signed_in?
-        return redirect_to root_path
+        redirect_to root_path
       end
     end
 

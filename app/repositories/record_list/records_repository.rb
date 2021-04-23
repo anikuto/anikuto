@@ -13,9 +13,9 @@ module RecordList
           after: pagination.after
         }
       )
-      records_data = result.to_h.dig("data", "user", "records")
+      records_data = result.to_h.dig('data', 'user', 'records')
 
-      [RecordEntity.from_nodes(records_data["nodes"]), PageInfoEntity.from_node(records_data["pageInfo"])]
+      [RecordEntity.from_nodes(records_data['nodes']), PageInfoEntity.from_node(records_data['pageInfo'])]
     end
   end
 end

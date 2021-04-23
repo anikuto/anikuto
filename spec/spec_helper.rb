@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
-ENV["RAILS_ENV"] ||= "test"
+ENV['RAILS_ENV'] ||= 'test'
 
-if ENV["COVERAGE"]
-  require "simplecov"
-  SimpleCov.start("rails")
+if ENV['COVERAGE']
+  require 'simplecov'
+  SimpleCov.start('rails')
 end
 
-require File.expand_path("../../config/environment", __FILE__)
-require "rspec/rails"
-require "capybara/rails"
-require "capybara/rspec"
+require File.expand_path('../config/environment', __dir__)
+require 'rspec/rails'
+require 'capybara/rails'
+require 'capybara/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[
-  Rails.root.join("spec/support/helper.rb"),
-  Rails.root.join("spec/support/**/*.rb"),
-  Rails.root.join("spec/steps/**/*.rb")
+  Rails.root.join('spec/support/helper.rb'),
+  Rails.root.join('spec/support/**/*.rb'),
+  Rails.root.join('spec/steps/**/*.rb')
 ].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
@@ -25,8 +25,8 @@ Dir[
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 Capybara.default_max_wait_time = 5
-Capybara.server_host = Socket.ip_address_list.detect{ |addr| addr.ipv4_private? }.ip_address
-Capybara.server_port = ENV.fetch("CAPYBARA_SERVER_PORT")
+Capybara.server_host = Socket.ip_address_list.detect { |addr| addr.ipv4_private? }.ip_address
+Capybara.server_port = ENV.fetch('CAPYBARA_SERVER_PORT')
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
@@ -51,7 +51,7 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  config.order = 'random'
 
   config.before(:each, type: :system) do
     host! "http://#{Capybara.server_host}:#{Capybara.server_port}"
@@ -66,7 +66,7 @@ RSpec.configure do |config|
       driver = Capybara::Selenium::Driver.new(
         app,
         browser: :remote,
-        url: ENV.fetch("SELENIUM_DRIVER_URL"),
+        url: ENV.fetch('SELENIUM_DRIVER_URL'),
         desired_capabilities: caps
       )
 
@@ -79,7 +79,7 @@ RSpec.configure do |config|
       driver
     end
 
-    driven_by :remote_selenium_chrome unless ENV["NO_HEADLESS"]
+    driven_by :remote_selenium_chrome unless ENV['NO_HEADLESS']
   end
 end
 

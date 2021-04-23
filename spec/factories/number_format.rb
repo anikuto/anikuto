@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :number_format do
-    name { "第1話" }
-    format { "第%d話" }
+    name { '第1話' }
+    format { '第%d話' }
   end
 end

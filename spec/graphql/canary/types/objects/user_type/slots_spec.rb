@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Canary::Types::Objects::UserType do
-  describe "slots" do
+  describe 'slots' do
     let!(:user) { create :user }
     let!(:setting) { create :setting, user: user }
     let!(:work_1) { create :work }
@@ -30,14 +30,14 @@ describe Canary::Types::Objects::UserType do
     let(:result_slot_ids) do
       result = Canary::AnikutoSchema.execute(query_string)
 
-      pp(result) if result["errors"]
+      pp(result) if result['errors']
 
-      result.dig("data", "user", "slots", "nodes").map { |node| node["databaseId"] }
+      result.dig('data', 'user', 'slots', 'nodes').map { |node| node['databaseId'] }
     end
 
-    context "when the user does not set channel work" do
-      context "when the user does not set status on works" do
-        context "when the `unwatched` option is not specified" do
+    context 'when the user does not set channel work' do
+      context 'when the user does not set status on works' do
+        context 'when the `unwatched` option is not specified' do
           let(:query_string) do
             <<~GRAPHQL
               query {
@@ -52,12 +52,12 @@ describe Canary::Types::Objects::UserType do
             GRAPHQL
           end
 
-          it "returns no slots" do
+          it 'returns no slots' do
             expect(result_slot_ids).to eq([])
           end
         end
 
-        context "when the `unwatched` option is `false`" do
+        context 'when the `unwatched` option is `false`' do
           let(:query_string) do
             <<~GRAPHQL
               query {
@@ -72,12 +72,12 @@ describe Canary::Types::Objects::UserType do
             GRAPHQL
           end
 
-          it "returns no slots" do
+          it 'returns no slots' do
             expect(result_slot_ids).to eq([])
           end
         end
 
-        context "when the `unwatched` option is `true`" do
+        context 'when the `unwatched` option is `true`' do
           let(:query_string) do
             <<~GRAPHQL
               query {
@@ -92,20 +92,20 @@ describe Canary::Types::Objects::UserType do
             GRAPHQL
           end
 
-          it "returns no slots" do
+          it 'returns no slots' do
             expect(result_slot_ids).to eq([])
           end
         end
       end
 
-      context "when the user is watching work_1" do
+      context 'when the user is watching work_1' do
         let!(:status) { create :status, user: user, work: work_1, kind: :watching }
 
-        context "when the user is watching work_2" do
+        context 'when the user is watching work_2' do
           let!(:status) { create :status, user: user, work: work_2, kind: :watching }
 
-          context "when the user does not watch episodes" do
-            context "when the `unwatched` option is not specified" do
+          context 'when the user does not watch episodes' do
+            context 'when the `unwatched` option is not specified' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -120,12 +120,12 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns no slots" do
+              it 'returns no slots' do
                 expect(result_slot_ids).to eq([])
               end
             end
 
-            context "when the `unwatched` option is `false`" do
+            context 'when the `unwatched` option is `false`' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -140,12 +140,12 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns no slots" do
+              it 'returns no slots' do
                 expect(result_slot_ids).to eq([])
               end
             end
 
-            context "when the `unwatched` option is `true`" do
+            context 'when the `unwatched` option is `true`' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -160,17 +160,17 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns no slots" do
+              it 'returns no slots' do
                 expect(result_slot_ids).to eq([])
               end
             end
           end
 
-          context "when the user watches episode_1" do
+          context 'when the user watches episode_1' do
             let!(:episode_record) { build :episode_record, user: user, episode: episode_1 }
             let!(:library_entry) { create(:library_entry, user: user, work: episode_1.work, watched_episode_ids: [episode_1]) }
 
-            context "when the `unwatched` option is not specified" do
+            context 'when the `unwatched` option is not specified' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -185,12 +185,12 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns no slots" do
+              it 'returns no slots' do
                 expect(result_slot_ids).to eq([])
               end
             end
 
-            context "when the `unwatched` option is `false`" do
+            context 'when the `unwatched` option is `false`' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -205,12 +205,12 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns no slots" do
+              it 'returns no slots' do
                 expect(result_slot_ids).to eq([])
               end
             end
 
-            context "when the `unwatched` option is `true`" do
+            context 'when the `unwatched` option is `true`' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -225,7 +225,7 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns no slots" do
+              it 'returns no slots' do
                 expect(result_slot_ids).to eq([])
               end
             end
@@ -234,12 +234,12 @@ describe Canary::Types::Objects::UserType do
       end
     end
 
-    context "when the user sets channel work" do
+    context 'when the user sets channel work' do
       let!(:channel_work_1) { create :channel_work, user: user, channel: channel_1, work: work_1 }
       let!(:channel_work_2) { create :channel_work, user: user, channel: channel_1, work: work_2 }
 
-      context "when the user does not set status on works" do
-        context "when the `unwatched` option is not specified" do
+      context 'when the user does not set status on works' do
+        context 'when the `unwatched` option is not specified' do
           let(:query_string) do
             <<~GRAPHQL
               query {
@@ -254,12 +254,12 @@ describe Canary::Types::Objects::UserType do
             GRAPHQL
           end
 
-          it "returns no slots" do
+          it 'returns no slots' do
             expect(result_slot_ids).to eq([])
           end
         end
 
-        context "when the `unwatched` option is `false`" do
+        context 'when the `unwatched` option is `false`' do
           let(:query_string) do
             <<~GRAPHQL
               query {
@@ -274,12 +274,12 @@ describe Canary::Types::Objects::UserType do
             GRAPHQL
           end
 
-          it "returns no slots" do
+          it 'returns no slots' do
             expect(result_slot_ids).to eq([])
           end
         end
 
-        context "when the `unwatched` option is `true`" do
+        context 'when the `unwatched` option is `true`' do
           let(:query_string) do
             <<~GRAPHQL
               query {
@@ -294,22 +294,22 @@ describe Canary::Types::Objects::UserType do
             GRAPHQL
           end
 
-          it "returns no slots" do
+          it 'returns no slots' do
             expect(result_slot_ids).to eq([])
           end
         end
       end
 
-      context "when the user is watching work_1" do
+      context 'when the user is watching work_1' do
         let!(:status_1) { create :status, user: user, work: work_1, kind: :watching }
         let!(:library_entry_1) { create(:library_entry, user: user, work: work_1, status: status_1) }
 
-        context "when the user is watching work_2" do
+        context 'when the user is watching work_2' do
           let!(:status_2) { create :status, user: user, work: work_2, kind: :watching }
           let!(:library_entry_2) { create(:library_entry, user: user, work: work_2, status: status_2) }
 
-          context "when the user does not watch episodes" do
-            context "when the `unwatched` option is not specified" do
+          context 'when the user does not watch episodes' do
+            context 'when the `unwatched` option is not specified' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -324,12 +324,12 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns slots" do
+              it 'returns slots' do
                 expect(result_slot_ids).to contain_exactly(slot_3.id, slot_4.id, slot_7.id, slot_8.id)
               end
             end
 
-            context "when the `unwatched` option is `false`" do
+            context 'when the `unwatched` option is `false`' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -344,12 +344,12 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns no slots" do
+              it 'returns no slots' do
                 expect(result_slot_ids).to eq([])
               end
             end
 
-            context "when the `unwatched` option is `true`" do
+            context 'when the `unwatched` option is `true`' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -364,20 +364,20 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns slots" do
+              it 'returns slots' do
                 expect(result_slot_ids).to contain_exactly(slot_3.id, slot_4.id, slot_7.id, slot_8.id)
               end
             end
           end
 
-          context "when the user watches episode_1" do
+          context 'when the user watches episode_1' do
             let!(:episode_record) { create(:episode_record, user: user, episode: episode_1) }
 
             before do
               library_entry_1.update(watched_episode_ids: [episode_1.id])
             end
 
-            context "when the `unwatched` option is not specified" do
+            context 'when the `unwatched` option is not specified' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -392,12 +392,12 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns slots" do
+              it 'returns slots' do
                 expect(result_slot_ids).to contain_exactly(slot_3.id, slot_4.id, slot_7.id, slot_8.id)
               end
             end
 
-            context "when the `unwatched` option is `false`" do
+            context 'when the `unwatched` option is `false`' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -412,12 +412,12 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns slots" do
+              it 'returns slots' do
                 expect(result_slot_ids).to contain_exactly(slot_7.id)
               end
             end
 
-            context "when the `unwatched` option is `true`" do
+            context 'when the `unwatched` option is `true`' do
               let(:query_string) do
                 <<~GRAPHQL
                   query {
@@ -432,7 +432,7 @@ describe Canary::Types::Objects::UserType do
                 GRAPHQL
               end
 
-              it "returns slots" do
+              it 'returns slots' do
                 expect(result_slot_ids).to contain_exactly(slot_3.id, slot_4.id, slot_8.id)
               end
             end

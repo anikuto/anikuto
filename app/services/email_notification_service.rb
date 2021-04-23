@@ -3,6 +3,7 @@
 class EmailNotificationService
   def self.send_email(action, user, *args)
     return unless user.email_notification.send("event_#{action}?")
+
     new.send_email(action, user.id, *args)
   end
 

@@ -6,7 +6,7 @@ class WorkMediaLabelComponent < ApplicationComponent
   end
 
   def call
-    content_tag :span, class: "badge u-badge-works" do
+    content_tag :span, class: 'badge u-badge-works' do
       work_entity.media_text
     end
   end

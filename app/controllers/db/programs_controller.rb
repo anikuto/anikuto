@@ -26,7 +26,7 @@ module Db
 
       @form.save!
 
-      redirect_to db_program_list_path(@work), notice: t("messages._common.created")
+      redirect_to db_program_list_path(@work), notice: t('messages._common.created')
     end
 
     def edit
@@ -47,7 +47,7 @@ module Db
 
       @program.save_and_create_activity!
 
-      redirect_to db_program_list_path(@work), notice: t("messages._common.updated")
+      redirect_to db_program_list_path(@work), notice: t('messages._common.updated')
     end
 
     def destroy
@@ -58,7 +58,7 @@ module Db
 
       redirect_back(
         fallback_location: db_program_list_path(@program.work),
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

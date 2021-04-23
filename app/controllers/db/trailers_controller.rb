@@ -26,7 +26,7 @@ module Db
 
       @form.save!
 
-      redirect_to db_trailer_list_path(@work), notice: t("messages._common.created")
+      redirect_to db_trailer_list_path(@work), notice: t('messages._common.created')
     end
 
     def edit
@@ -46,7 +46,7 @@ module Db
 
       @trailer.save_and_create_activity!
 
-      redirect_to db_trailer_list_path(@trailer.work), notice: t("messages._common.updated")
+      redirect_to db_trailer_list_path(@trailer.work), notice: t('messages._common.updated')
     end
 
     def destroy
@@ -57,7 +57,7 @@ module Db
 
       redirect_back(
         fallback_location: db_trailer_list_path(@trailer.work),
-        notice: t("messages._common.deleted")
+        notice: t('messages._common.deleted')
       )
     end
 

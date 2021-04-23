@@ -21,14 +21,14 @@ module SlotDecorator
         episode = work.episodes.find(send(field))
         title = episode.decorate.title_with_number
         path = work_episode_path(episode.work, episode)
-        link_to(title, path, target: "_blank")
+        link_to(title, path, target: '_blank')
       when :work_id
         path = work_path(work)
-        link_to(work.title, path, target: "_blank")
+        link_to(work.title, path, target: '_blank')
       when :started_at
-        send(field).in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d %H:%M")
+        send(field).in_time_zone('Asia/Tokyo').strftime('%Y/%m/%d %H:%M')
       when :rebroadcast
-        send(field) ? icon("check") : "-"
+        send(field) ? icon('check') : '-'
       else
         send(field)
       end

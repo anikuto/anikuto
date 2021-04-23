@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :provider do
-    name { "twitter" }
+    name { 'twitter' }
     uid { SecureRandom.hex }
-    token { "mock_token" }
-    token_secret { "mock_secret" }
+    token { 'mock_token' }
+    token_secret { 'mock_secret' }
   end
 end

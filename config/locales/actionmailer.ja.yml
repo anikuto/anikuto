@@ -1,0 +1,24 @@
+ja:
+  email_notification_mailer:
+    _layout:
+      unsubscribe: "購読解除"
+      unsubscribe_message: "不要なメールでしたか？"
+    favorite_works_added:
+      favorites_joins_work: "このアニメに関わるあなたのお気に入り"
+      subject: "あなたのお気に入りが関連するアニメ%{n}作品がAnikutoに登録されました！"
+      view_detail: "詳しく見る"
+    followed_user:
+      followed_you: "%{name} (@%{username})にフォローされました。"
+      subject: "%{name} (@%{username})がAnikutoであなたをフォローしました！"
+      view_profile: プロフィールを見る
+    liked_episode_record:
+      liked_your_episode_records: "%{name} (@%{username})が、あなたの記録に「いいね！」しました。"
+      subject: "%{name} (@%{username})が %{title} への記録に「いいね！」しました"
+      view_profile: プロフィールを見る
+      view_record: 記録を見る
+    related_works_added:
+      related_works: 関連する作品
+      subject: "あなたのライブラリに登録されている作品に関連するアニメ%{n}作品がAnikutoに登録されました！"
+  mention_mailer:
+    notify:
+      subject: "%{name} (@%{username})がAnikutoであなたにメンションしました！"

@@ -26,10 +26,10 @@ describe UserSlotsQuery, type: :query do
   let!(:slot_7) { create :slot, program: program_4, episode: episode_1, started_at: Time.new(2020, 10, 1), rebroadcast: true }
   let!(:slot_8) { create :slot, program: program_4, episode: episode_2, started_at: Time.new(2020, 10, 8), rebroadcast: true }
 
-  context "when the user does not set channel work" do
-    context "when the user does not set status on works" do
-      context "when the `watched` option is not specified" do
-        it "returns no slots" do
+  context 'when the user does not set channel work' do
+    context 'when the user does not set status on works' do
+      context 'when the `watched` option is not specified' do
+        it 'returns no slots' do
           slots = UserSlotsQuery.new(
             user,
             Slot.all
@@ -39,8 +39,8 @@ describe UserSlotsQuery, type: :query do
         end
       end
 
-      context "when the `watched` option is `true`" do
-        it "returns no slots" do
+      context 'when the `watched` option is `true`' do
+        it 'returns no slots' do
           slots = UserSlotsQuery.new(
             user,
             Slot.all,
@@ -51,8 +51,8 @@ describe UserSlotsQuery, type: :query do
         end
       end
 
-      context "when the `watched` option is `false`" do
-        it "returns no slots" do
+      context 'when the `watched` option is `false`' do
+        it 'returns no slots' do
           slots = UserSlotsQuery.new(
             user,
             Slot.all,
@@ -64,15 +64,15 @@ describe UserSlotsQuery, type: :query do
       end
     end
 
-    context "when the user is watching work_1" do
+    context 'when the user is watching work_1' do
       let!(:status) { create :status, user: user, work: work_1, kind: :watching }
 
-      context "when the user is watching work_2" do
+      context 'when the user is watching work_2' do
         let!(:status) { create :status, user: user, work: work_2, kind: :watching }
 
-        context "when the user does not watch episodes" do
-          context "when the `watched` option is not specified" do
-            it "returns no slots" do
+        context 'when the user does not watch episodes' do
+          context 'when the `watched` option is not specified' do
+            it 'returns no slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all
@@ -82,8 +82,8 @@ describe UserSlotsQuery, type: :query do
             end
           end
 
-          context "when the `watched` option is `true`" do
-            it "returns no slots" do
+          context 'when the `watched` option is `true`' do
+            it 'returns no slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all,
@@ -94,8 +94,8 @@ describe UserSlotsQuery, type: :query do
             end
           end
 
-          context "when the `watched` option is `false`" do
-            it "returns no slots" do
+          context 'when the `watched` option is `false`' do
+            it 'returns no slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all,
@@ -107,12 +107,12 @@ describe UserSlotsQuery, type: :query do
           end
         end
 
-        context "when the user watches episode_1" do
+        context 'when the user watches episode_1' do
           let!(:episode_record) { build :episode_record, user: user, episode: episode_1 }
           let!(:library_entry) { create(:library_entry, user: user, work: episode_1.work, watched_episode_ids: [episode_1]) }
 
-          context "when the `watched` option is not specified" do
-            it "returns no slots" do
+          context 'when the `watched` option is not specified' do
+            it 'returns no slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all
@@ -122,8 +122,8 @@ describe UserSlotsQuery, type: :query do
             end
           end
 
-          context "when the `watched` option is `true`" do
-            it "returns no slots" do
+          context 'when the `watched` option is `true`' do
+            it 'returns no slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all,
@@ -134,8 +134,8 @@ describe UserSlotsQuery, type: :query do
             end
           end
 
-          context "when the `watched` option is `false`" do
-            it "returns no slots" do
+          context 'when the `watched` option is `false`' do
+            it 'returns no slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all,
@@ -150,13 +150,13 @@ describe UserSlotsQuery, type: :query do
     end
   end
 
-  context "when the user sets channel work" do
+  context 'when the user sets channel work' do
     let!(:channel_work_1) { create :channel_work, user: user, channel: channel_1, work: work_1 }
     let!(:channel_work_2) { create :channel_work, user: user, channel: channel_1, work: work_2 }
 
-    context "when the user does not set status on works" do
-      context "when the `watched` option is not specified" do
-        it "returns no slots" do
+    context 'when the user does not set status on works' do
+      context 'when the `watched` option is not specified' do
+        it 'returns no slots' do
           slots = UserSlotsQuery.new(
             user,
             Slot.all
@@ -166,8 +166,8 @@ describe UserSlotsQuery, type: :query do
         end
       end
 
-      context "when the `watched` option is `true`" do
-        it "returns no slots" do
+      context 'when the `watched` option is `true`' do
+        it 'returns no slots' do
           slots = UserSlotsQuery.new(
             user,
             Slot.all,
@@ -178,8 +178,8 @@ describe UserSlotsQuery, type: :query do
         end
       end
 
-      context "when the `watched` option is `false`" do
-        it "returns no slots" do
+      context 'when the `watched` option is `false`' do
+        it 'returns no slots' do
           slots = UserSlotsQuery.new(
             user,
             Slot.all,
@@ -191,17 +191,17 @@ describe UserSlotsQuery, type: :query do
       end
     end
 
-    context "when the user is watching work_1" do
+    context 'when the user is watching work_1' do
       let!(:status_1) { create :status, user: user, work: work_1, kind: :watching }
       let!(:library_entry_1) { create(:library_entry, user: user, work: work_1, status: status_1) }
 
-      context "when the user is watching work_2" do
+      context 'when the user is watching work_2' do
         let!(:status_2) { create :status, user: user, work: work_2, kind: :watching }
         let!(:library_entry_2) { create(:library_entry, user: user, work: work_2, status: status_2) }
 
-        context "when the user does not watch episodes" do
-          context "when the `watched` option is not specified" do
-            it "returns slots" do
+        context 'when the user does not watch episodes' do
+          context 'when the `watched` option is not specified' do
+            it 'returns slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all
@@ -211,8 +211,8 @@ describe UserSlotsQuery, type: :query do
             end
           end
 
-          context "when the `watched` option is `true`" do
-            it "returns no slots" do
+          context 'when the `watched` option is `true`' do
+            it 'returns no slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all,
@@ -223,8 +223,8 @@ describe UserSlotsQuery, type: :query do
             end
           end
 
-          context "when the `watched` option is `false`" do
-            it "returns slots" do
+          context 'when the `watched` option is `false`' do
+            it 'returns slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all,
@@ -236,15 +236,15 @@ describe UserSlotsQuery, type: :query do
           end
         end
 
-        context "when the user watches episode_1" do
+        context 'when the user watches episode_1' do
           let!(:episode_record) { create(:episode_record, user: user, episode: episode_1) }
 
           before do
             library_entry_1.update(watched_episode_ids: [episode_1.id])
           end
 
-          context "when the `watched` option is not specified" do
-            it "returns slots" do
+          context 'when the `watched` option is not specified' do
+            it 'returns slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all
@@ -254,8 +254,8 @@ describe UserSlotsQuery, type: :query do
             end
           end
 
-          context "when the `watched` option is `true`" do
-            it "returns slots" do
+          context 'when the `watched` option is `true`' do
+            it 'returns slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all,
@@ -266,8 +266,8 @@ describe UserSlotsQuery, type: :query do
             end
           end
 
-          context "when the `watched` option is `false`" do
-            it "returns slots" do
+          context 'when the `watched` option is `false`' do
+            it 'returns slots' do
               slots = UserSlotsQuery.new(
                 user,
                 Slot.all,

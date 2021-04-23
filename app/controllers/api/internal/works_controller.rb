@@ -6,7 +6,7 @@ module Api
       def index
         q = params[:q]
         @works = if q
-          Work.where("title ILIKE ?", "%#{q}%").only_kept
+          Work.where('title ILIKE ?', "%#{q}%").only_kept
         else
           Work.none
         end

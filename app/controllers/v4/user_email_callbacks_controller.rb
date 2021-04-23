@@ -14,7 +14,7 @@ module V4
       confirmation = current_user.email_confirmations.find_by(event: :update_email, token: token)
 
       if !confirmation || confirmation.expired?
-        return redirect_to(root_path, alert: t("messages.user_email_callbacks.show.expired"))
+        return redirect_to(root_path, alert: t('messages.user_email_callbacks.show.expired'))
       end
 
       ActiveRecord::Base.transaction do
@@ -22,7 +22,7 @@ module V4
         confirmation.destroy
       end
 
-      redirect_to(root_path, notice: t("messages.user_email_callbacks.show.updated"))
+      redirect_to(root_path, notice: t('messages.user_email_callbacks.show.updated'))
     end
   end
 end

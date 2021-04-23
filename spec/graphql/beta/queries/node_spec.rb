@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-describe "GraphQL API Query" do
-  describe "node" do
+describe 'GraphQL API Query' do
+  describe 'node' do
     let(:work) { create(:work) }
     let(:id) { GraphQL::Schema::UniqueWithinType.encode(work.class.name, work.id) }
     let(:result) do
@@ -18,11 +18,11 @@ describe "GraphQL API Query" do
       GRAPHQL
 
       res = Beta::AnikutoSchema.execute(query_string)
-      pp(res) if res["errors"]
+      pp(res) if res['errors']
       res
     end
 
-    it "fetches resource" do
+    it 'fetches resource' do
       expected = {
         data: {
           node: {

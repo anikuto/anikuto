@@ -12,7 +12,7 @@ module Forum
 
       unless @comment.valid?
         @comments = @post.forum_comments.order(:created_at)
-        return render "forum/posts/show"
+        return render 'forum/posts/show'
       end
 
       ActiveRecord::Base.transaction do
@@ -23,7 +23,7 @@ module Forum
 
       @comment.send_notification
 
-      Flash.store_data(cookies[:ann_client_uuid], notice: t("messages.forum.comments.created"))
+      Flash.store_data(cookies[:ann_client_uuid], notice: t('messages.forum.comments.created'))
       redirect_to forum_post_path(@post)
     end
 
@@ -42,7 +42,7 @@ module Forum
       @comment.detect_locale!(:body)
 
       if @comment.save
-        Flash.store_data(cookies[:ann_client_uuid], notice: t("messages.forum.comments.updated"))
+        Flash.store_data(cookies[:ann_client_uuid], notice: t('messages.forum.comments.updated'))
         redirect_to forum_post_path(@post)
       else
         render :edit
