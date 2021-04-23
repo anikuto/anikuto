@@ -18,7 +18,8 @@ module Beta
 
       def resolve(
         work_id:,
-        body:, title: nil,
+        body:, 
+        title: nil,
         rating_overall_state: nil,
         rating_animation_state: nil,
         rating_music_state: nil,

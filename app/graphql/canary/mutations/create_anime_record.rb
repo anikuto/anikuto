@@ -8,11 +8,21 @@ module Canary
       argument :body, String,
         required: false,
         description: '作品への感想'
-      WorkRecord::STATES.each do |state|
-        argument state.to_s.camelcase(:lower).to_sym, Canary::Types::Enums::RatingState,
-          required: false,
-          description: '作品への評価'
-      end
+      argument :rating_overall_state, Canary::Types::Enums::RatingState,
+        required: false,
+        description: '作品への評価'
+      argument :rating_animation_state, Canary::Types::Enums::RatingState,
+        required: false,
+        description: '作品への評価'
+      argument :rating_music_state, Canary::Types::Enums::RatingState,
+        required: false,
+        description: '作品への評価'
+      argument :rating_story_state, Canary::Types::Enums::RatingState,
+        required: false,
+        description: '作品への評価'
+      argument :rating_character_state, Canary::Types::Enums::RatingState,
+        required: false,
+        description: '作品への評価'
       argument :share_to_twitter, Boolean,
         required: false,
         description: '作品への記録をTwitterでシェアするかどうか'
