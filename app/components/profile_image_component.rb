@@ -24,7 +24,7 @@ class ProfileImageComponent < ApplicationComponent
 
   def img_class_name
     classes = %w(c-profile-image img-fluid img-thumbnail js-lazy rounded-circle)
-    classes += class_name.split(' ')
+    classes += class_name.split
     classes.join(' ')
   end
 

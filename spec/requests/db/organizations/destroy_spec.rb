@@ -11,7 +11,7 @@ describe 'DELETE /db/organizations/:id', type: :request do
       organization.reload
 
       expect(response.status).to eq(302)
-      expect(flash[:alert]).to eq('You need to sign in or sign up before continuing.')
+      expect(flash[:alert]).to eq('ログインしてください')
 
       expect(Organization.count).to eq(1)
     end

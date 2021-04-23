@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # https://gist.github.com/kinopyo/1338738
 
 module OmniauthMock

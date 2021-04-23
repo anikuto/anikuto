@@ -18,7 +18,7 @@ module Canary
 
         if kind == 'NO_STATUS'
           ActiveRecord::Base.transaction do
-            library_entry.update!(status_id: nil) if library_entry
+            library_entry&.update!(status_id: nil)
             UserWatchedWorksCountJob.perform_later(viewer.id)
           end
 

@@ -27,7 +27,7 @@ describe 'Api::V1::Me::Slots' do
       work = episode.work
       expected_hash = {
         'id' => slot.id,
-        'started_at' => '2017-01-29T00:00:00.000Z',
+        'started_at' => '2017-01-28T15:00:00.000Z',
         'is_rebroadcast' => false,
         'channel' => {
           'id' => channel.id,

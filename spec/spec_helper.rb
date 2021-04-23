@@ -18,14 +18,14 @@ Dir[
   Rails.root.join('spec/support/helper.rb'),
   Rails.root.join('spec/support/**/*.rb'),
   Rails.root.join('spec/steps/**/*.rb')
-].each { |f| require f }
+].sort.each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 Capybara.default_max_wait_time = 5
-Capybara.server_host = Socket.ip_address_list.detect { |addr| addr.ipv4_private? }.ip_address
+Capybara.server_host = Socket.ip_address_list.detect(&:ipv4_private?).ip_address
 Capybara.server_port = ENV.fetch('CAPYBARA_SERVER_PORT')
 
 RSpec.configure do |config|

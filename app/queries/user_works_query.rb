@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UserWorksQuery
   def initialize(user)
     @user = user

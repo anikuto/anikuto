@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Module.class_eval do
   ##
   # 独自のエレメントモジュールなどをincludeする処理のショートカット

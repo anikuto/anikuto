@@ -50,6 +50,8 @@ yarn-debug.log*
 .DS_Store
 /public/uploads
 /tags
+/cc-test-reporter
+/test_results
 
 # database dumps
 anikuto_**.sql

@@ -12,7 +12,7 @@ class RatingLabelComponent < ApplicationComponent
 
   def label_class_name
     classes = %w(badge)
-    classes += class_name.split(' ')
+    classes += class_name.split
     classes << badge_class_name
     classes.join(' ')
   end

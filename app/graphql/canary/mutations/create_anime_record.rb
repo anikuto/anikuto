@@ -29,7 +29,7 @@ module Canary
         rating_character_state: nil,
         share_to_twitter: nil
       )
-        raise Annict::Errors::InvalidAPITokenScopeError unless context[:writable]
+        raise Anikuto::Errors::InvalidAPITokenScopeError unless context[:writable]
 
         viewer = context[:viewer]
         work = Work.only_kept.find_by_graphql_id(anime_id)
@@ -50,7 +50,7 @@ module Canary
           work_record.record = viewer.records.create!(work: work)
 
           unless work_record.valid?
-            raise GraphQL::ExecutionError, work_record.errors.full_messages.join(", ")
+            raise GraphQL::ExecutionError, work_record.errors.full_messages.join(', ')
           end
 
           work_record.save

@@ -15,7 +15,7 @@ class LikeButtonComponent < ApplicationComponent
 
   def like_button_class_name
     classes = %w(d-inline-block u-fake-link)
-    classes += class_name.split(' ')
+    classes += class_name.split
     classes.uniq.join(' ')
   end
 end

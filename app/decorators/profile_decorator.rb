@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module ProfileDecorator
   def shorten_url
     uri = URI(url)
