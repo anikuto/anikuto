@@ -1,6 +1,6 @@
 <p align="center"><a href="https://glimmerhq.com/anikuto/anikuto" target="_blank" rel="noopener"><img src="https://user-images.githubusercontent.com/56767/56467671-fdd6ea80-645c-11e9-9056-a5d3fd5739e6.png" width="130" /></a></p>
 
-# Anikuto
+# Anikuto ![CircleCI](https://img.shields.io/circleci/build/gh/anikuto/anikuto?logo=circleci) ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/anikuto/anikuto?logo=code%20climate) ![Code Climate coverage](https://img.shields.io/codeclimate/coverage/anikuto/anikuto?logo=code%20climate)
 
 The platform for all things anime.
 
