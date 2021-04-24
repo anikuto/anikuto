@@ -79,15 +79,15 @@ Rails.application.configure do
   # https://github.com/ruckus/active-record-query-trace
   ActiveRecordQueryTrace.enabled = false
 
-  config.imgix = {
-    use_https: true,
-    source: ENV.fetch('IMGIX_SOURCE'),
-    secure_url_token: ENV.fetch('IMGIX_SECURE_URL_TOKEN')
-  }
-
   config.hosts += [
     ENV.fetch('ANIKUTO_API_DOMAIN'),
     ENV.fetch('ANIKUTO_DOMAIN'),
     ENV.fetch('ANIKUTO_JP_DOMAIN')
   ]
+
+  config.imgix = {
+    use_https: true,
+    source: ENV.fetch("IMGIX_SOURCE"),
+    secure_url_token: ENV.fetch("IMGIX_SECURE_URL_TOKEN")
+  }
 end

@@ -82,5 +82,7 @@ test:
 production:
   <<: *default
   database: anikuto_production
+  host: localhost
+  port: 5432
   username: anikuto
   password: <%= ENV['ANIKUTO_DATABASE_PASSWORD'] %>

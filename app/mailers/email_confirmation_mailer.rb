@@ -3,7 +3,7 @@
 class EmailConfirmationMailer < ActionMailer::Base
   include Localable
 
-  default from: 'Anikuto <noreply@anikuto.com>'
+  default from: 'Anikuto <noreply@glimmerhq.com>'
 
   def sign_up_confirmation(email_confirmation_id, locale)
     email_confirmation = EmailConfirmation.find(email_confirmation_id)

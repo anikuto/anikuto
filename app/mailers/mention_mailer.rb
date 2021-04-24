@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MentionMailer < ActionMailer::Base
-  default from: 'Anikuto <noreply@anikuto.com>'
+  default from: 'Anikuto <noreply@glimmerhq.com>'
 
   def notify(username, resource_id, resource_type, column)
     @user = User.where(username: username).first

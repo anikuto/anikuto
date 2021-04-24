@@ -36,7 +36,7 @@ namespace :twitter do
           limit(3).
           select(:title, :id).
           map do |w|
-            "- #{w.title}: <https://anikuto.com/db/works/#{w.id}/edit>"
+            "- #{w.title}: <https://glimmerhq.com/db/works/#{w.id}/edit>"
           end.join("\n")
 
         # Skip posting to Discord if tweet body does not contain channel name

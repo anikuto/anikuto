@@ -9,7 +9,7 @@ namespace :mal do
   class Mal
     include HTTParty
 
-    base_uri 'https://hbv3-mal-api.herokuapp.com/2.1'
+    base_uri 'https://api.jikan.moe/v3'
 
     def import!
       page = 1
@@ -20,14 +20,14 @@ namespace :mal do
         break if anime_list.key?('error')
 
         anime_list.each do |anime|
-          print "Anime ##{anime['id']}: "
+          print "Anime ##{anime['mal_id']}: "
 
-          if Work.find_by(mal_anime_id: anime['id']).present?
+          if Work.find_by(mal_anime_id: anime['mal_id']).present?
             puts 'already saved'
             next
           end
 
-          mal_anime = fetch_anime(anime['id'])
+          mal_anime = fetch_anime(anime['mal_id'])
 
           if mal_anime.key?('error')
             puts 'error'
@@ -51,7 +51,7 @@ namespace :mal do
     def import_work!(work, mal_anime)
       attrs = {
         title_en: mal_anime['title'],
-        mal_anime_id: mal_anime['id']
+        mal_anime_id: mal_anime['mal_id'].to_i
       }
       work.update_columns(attrs)
       puts 'updated'
@@ -60,7 +60,7 @@ namespace :mal do
     private
 
     def fetch_anime_list(page: 1)
-      self.class.get('/anime/popular', query: { page: page })
+      self.class.get('/top/anime', query: { page: page })
     end
 
     def fetch_anime(mal_anime_id)

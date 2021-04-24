@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ForumMailer < ActionMailer::Base
-  default from: 'Anikuto <noreply@anikuto.com>'
+  default from: 'Anikuto <noreply@glimmerhq.com>'
 
   def comment_notification(user_id, comment_id)
     @receiver = User.find(user_id)

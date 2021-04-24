@@ -25,7 +25,7 @@ Rails.application.configure do
   # Heroku will set `RAILS_SERVE_STATIC_FILES` when you deploy a Ruby app via
   # the Heroku Ruby Buildpack for Rails 4.2+ apps.
   # https://blog.heroku.com/container_ready_rails_5#serving-files-by-default
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = ENV.fetch('ANIKUTO_ASSET_URL')
@@ -124,7 +124,6 @@ Rails.application.configure do
 
   config.imgix = {
     use_https: true,
-    source: ENV.fetch('IMGIX_SOURCE'),
-    secure_url_token: ENV.fetch('IMGIX_SECURE_URL_TOKEN')
+    source: ENV.fetch("IMGIX_SOURCE")
   }
 end

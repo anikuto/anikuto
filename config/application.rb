@@ -66,11 +66,11 @@ module Anikuto
     config.page_categories = config_for(:page_categories)
 
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-      # Redirect: www.anikuto.com -> anikuto.com
+      # Redirect: www.glimmerhq.com -> glimmerhq.com
       r301(/.*/, "https://#{ENV.fetch('ANIKUTO_HOST')}$&", if: proc { |rack_env|
         rack_env['SERVER_NAME'].in?(["www.#{ENV.fetch('ANIKUTO_HOST')}"])
       })
-      # Redirect: www.jp.anikuto.com -> jp.anikuto.com
+      # Redirect: www.jp.glimmerhq.com -> jp.glimmerhq.com
       r301(/.*/, "https://#{ENV.fetch('ANIKUTO_JP_HOST')}$&", if: proc { |rack_env|
         rack_env['SERVER_NAME'].in?(["www.#{ENV.fetch('ANIKUTO_JP_HOST')}"])
       })

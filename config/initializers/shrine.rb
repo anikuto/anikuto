@@ -13,12 +13,14 @@ else
   s3_options = {
     access_key_id: ENV.fetch('S3_ACCESS_KEY_ID'),
     secret_access_key: ENV.fetch('S3_SECRET_ACCESS_KEY'),
-    region: 'ap-northeast-1',
-    bucket: ENV.fetch('S3_BUCKET_NAME')
+    endpoint: ENV.fetch('S3_ENDPOINT'),
+    bucket: ENV.fetch('S3_BUCKET_NAME'),
+    region: 'us-east-1',
+    force_path_style:  true
   }
 
   Shrine.storages = {
-    cache: Shrine::Storage::S3.new(prefix: 'shrine/cache', **s3_options),
+    cache: Shrine::Storage::S3.new(prefix: 'shirne/cache', **s3_options),
     store: Shrine::Storage::S3.new(prefix: 'shrine', **s3_options)
   }
 end

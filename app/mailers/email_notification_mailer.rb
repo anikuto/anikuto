@@ -2,7 +2,7 @@
 
 class EmailNotificationMailer < ActionMailer::Base
   default(
-    from: 'Anikuto <noreply@anikuto.com>'
+    from: 'Anikuto <noreply@glimmerhq.com>'
   )
 
   add_template_helper AssetsHelper

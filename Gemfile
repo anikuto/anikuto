@@ -22,6 +22,7 @@ gem 'delayed_job_active_record'
 gem 'devise'
 gem 'discord-notifier'
 gem 'doorkeeper'
+gem 'dotenv-rails'
 gem 'down'
 gem 'dry-struct'
 gem 'dry-validation'
@@ -77,7 +78,6 @@ gem 'wilson_score'
 
 group :development, :test do
   gem 'awesome_print'
-  gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'rspec_junit_formatter' # Using on CircleCI
   gem 'rspec-mocks'
